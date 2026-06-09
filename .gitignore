@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.log
+node_modules/
+# feed.json is generated & committed by the Action; ignore local test copies
+/feed.json.local

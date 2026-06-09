@@ -1,0 +1,4 @@
+pytrends==4.9.2
+requests==2.32.3
+# YARS (datavorous/yars) is vendored into ./yars/ — it is a flat-layout repo with
+# no setup.py/pyproject, so it cannot be pip-installed from git. Imported directly.

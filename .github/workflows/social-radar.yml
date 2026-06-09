@@ -1,0 +1,67 @@
+name: social-radar
+
+# Off-machine trend scraper for the Odysseus Discord bot. Runs on GitHub's free
+# compute (clean IP), publishes feed.json, which the bot reads via SOCIAL_FEED_URL
+# and pings @MagZ on new TikTok / Instagram / Reddit / Google trends.
+#
+# Scrapers: tiktok-scraper + instatouch (Node), YARS (Reddit), pytrends (Trends).
+# Set these repo Secrets for real data (Settings -> Secrets and variables -> Actions):
+#   TIKTOK_SESSION  = your TikTok 'sid_tt' cookie value
+#   IG_SESSION      = your Instagram 'sessionid' cookie value
+# And optionally this Variable:
+#   IG_ACCOUNTS     = comma-separated IG handles (default: minecraft)
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # every 2 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: social-radar
+  cancel-in-progress: true
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps
+        run: |
+          npm install
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Scrape TikTok + Instagram (Node)
+        env:
+          TIKTOK_SESSION: ${{ secrets.TIKTOK_SESSION }}
+          IG_SESSION: ${{ secrets.IG_SESSION }}
+          IG_ACCOUNTS: ${{ vars.IG_ACCOUNTS }}
+        run: node scrape_social.js
+        continue-on-error: true
+
+      - name: Scrape Reddit + Trends, merge feed (Python)
+        env:
+          GEO: US
+          REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts
+        run: python scrape.py
+
+      - name: Commit feed
+        run: |
+          git config user.name  "social-radar-bot"
+          git config user.email "actions@github.com"
+          git add feed.json
+          git diff --quiet --staged || git commit -m "feed: $(date -u +%FT%TZ)"
+          git push
