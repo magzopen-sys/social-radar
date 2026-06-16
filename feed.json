@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-06-16T00:14:56Z",
+  "generated_at": "2026-06-16T18:41:46Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "42c7ab66f86f6f7e",
-      "query": "verity",
-      "value": "+250%"
+      "id": "fb01eb27df6beaab",
+      "query": "mineplex",
+      "value": "+350%"
     },
     {
       "id": "be83bdad3c3720c1",
       "query": "verity minecraft",
-      "value": "+250%"
+      "value": "+200%"
+    },
+    {
+      "id": "42c7ab66f86f6f7e",
+      "query": "verity",
+      "value": "+190%"
     },
     {
       "id": "e6d1d3f36210857f",
       "query": "verity mod minecraft",
-      "value": "+150%"
-    },
-    {
-      "id": "80562c2f31085c17",
-      "query": "minecraft switch 2",
-      "value": "+80%"
+      "value": "+130%"
     }
   ]
 }
