@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-06-17T21:30:09Z",
+  "generated_at": "2026-06-18T12:03:15Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "7200dbc2d5494315",
-      "query": "minecraft chaos cubed drop",
-      "value": "+2150%"
-    },
-    {
-      "id": "fb01eb27df6beaab",
-      "query": "mineplex",
-      "value": "+350%"
-    },
-    {
-      "id": "5f5e1c55a137e3f8",
-      "query": "minecraft 26.2",
-      "value": "+200%"
-    },
-    {
-      "id": "42c7ab66f86f6f7e",
-      "query": "verity",
-      "value": "+190%"
-    },
-    {
-      "id": "be83bdad3c3720c1",
-      "query": "verity minecraft",
-      "value": "+180%"
-    },
-    {
-      "id": "760b5cbbd840682b",
-      "query": "minecraft sulfur update",
-      "value": "+180%"
-    },
-    {
-      "id": "dc0f45384887db94",
-      "query": "sulfur cube minecraft",
-      "value": "+130%"
-    },
-    {
-      "id": "e6d1d3f36210857f",
-      "query": "verity mod minecraft",
-      "value": "+100%"
-    },
-    {
-      "id": "9befe2e4744d3368",
-      "query": "new minecraft update",
-      "value": "+90%"
-    },
-    {
-      "id": "b059bce9b56a5156",
-      "query": "minecraft update",
-      "value": "+70%"
-    }
-  ]
+  "google_trends": []
 }
