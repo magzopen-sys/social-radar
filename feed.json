@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-06-20T17:09:03Z",
+  "generated_at": "2026-06-20T21:57:03Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "7200dbc2d5494315",
-      "query": "minecraft chaos cubed drop",
-      "value": "+2500%"
-    },
-    {
-      "id": "8b175377f8989722",
-      "query": "how to find sulfur caves in minecraft",
-      "value": "+1150%"
-    },
-    {
-      "id": "5f5e1c55a137e3f8",
-      "query": "minecraft 26.2",
-      "value": "+500%"
-    },
-    {
-      "id": "d12d0a34e58c1076",
-      "query": "minecraft update today",
-      "value": "+400%"
-    },
-    {
-      "id": "dc0f45384887db94",
-      "query": "sulfur cube minecraft",
-      "value": "+300%"
-    },
-    {
-      "id": "760b5cbbd840682b",
-      "query": "minecraft sulfur update",
-      "value": "+200%"
-    },
-    {
-      "id": "9befe2e4744d3368",
-      "query": "new minecraft update",
-      "value": "+180%"
-    },
-    {
-      "id": "42c7ab66f86f6f7e",
-      "query": "verity",
-      "value": "+170%"
-    },
-    {
-      "id": "be83bdad3c3720c1",
-      "query": "verity minecraft",
-      "value": "+170%"
-    },
-    {
-      "id": "e4d877a066e628b7",
-      "query": "verity mod",
-      "value": "+140%"
-    }
-  ]
+  "google_trends": []
 }
