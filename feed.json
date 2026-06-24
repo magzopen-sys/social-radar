@@ -1,48 +1,7 @@
 {
-  "generated_at": "2026-06-24T10:36:35Z",
+  "generated_at": "2026-06-24T18:21:20Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "5f5e1c55a137e3f8",
-      "query": "minecraft 26.2",
-      "value": "+190%"
-    },
-    {
-      "id": "7ba1097fbf56f706",
-      "query": "verity mod minecraft bedrock",
-      "value": "+140%"
-    },
-    {
-      "id": "9b1490e352d371d4",
-      "query": "sulfur caves minecraft",
-      "value": "+70%"
-    },
-    {
-      "id": "dc0f45384887db94",
-      "query": "sulfur cube minecraft",
-      "value": "+60%"
-    },
-    {
-      "id": "be83bdad3c3720c1",
-      "query": "verity minecraft",
-      "value": "+50%"
-    },
-    {
-      "id": "42c7ab66f86f6f7e",
-      "query": "verity",
-      "value": "+50%"
-    },
-    {
-      "id": "401825968b9f1c25",
-      "query": "verity minecraft mod",
-      "value": "+50%"
-    },
-    {
-      "id": "e4d877a066e628b7",
-      "query": "verity mod",
-      "value": "+40%"
-    }
-  ]
+  "google_trends": []
 }
