@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-07-07T19:15:55Z",
+  "generated_at": "2026-07-07T23:31:08Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "421f98a61bb479db",
-      "query": "esa minecraft",
-      "value": "+750%"
+      "id": "4cfcbf510398bd19",
+      "query": "minecraft cushion",
+      "value": "+350%"
     },
     {
       "id": "cf03105763a0f600",
       "query": "esa",
-      "value": "+700%"
+      "value": "+250%"
     },
     {
-      "id": "ee41a51d7afbba15",
-      "query": "minecraft 26.3 snapshot 2",
-      "value": "+300%"
+      "id": "421f98a61bb479db",
+      "query": "esa minecraft",
+      "value": "+200%"
     }
   ]
 }
