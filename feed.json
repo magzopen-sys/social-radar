@@ -1,7 +1,18 @@
 {
-  "generated_at": "2026-07-08T16:15:49Z",
+  "generated_at": "2026-07-08T21:48:47Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "4cfcbf510398bd19",
+      "query": "minecraft cushion",
+      "value": "+1450%"
+    },
+    {
+      "id": "6710c58dcd315d00",
+      "query": "minecraft scholarship",
+      "value": "+40%"
+    }
+  ]
 }
