@@ -1,28 +1,7 @@
 {
-  "generated_at": "2026-07-09T10:32:48Z",
+  "generated_at": "2026-07-09T18:27:18Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "85c6d489bd9fc899",
-      "query": "minecraft cushion update",
-      "value": "+2450%"
-    },
-    {
-      "id": "4cfcbf510398bd19",
-      "query": "minecraft cushion",
-      "value": "+2200%"
-    },
-    {
-      "id": "1bb564b604f8feea",
-      "query": "minecraft new sitting feature",
-      "value": "+700%"
-    },
-    {
-      "id": "6710c58dcd315d00",
-      "query": "minecraft scholarship",
-      "value": "+40%"
-    }
-  ]
+  "google_trends": []
 }
