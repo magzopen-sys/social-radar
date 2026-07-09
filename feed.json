@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-07-09T18:27:18Z",
+  "generated_at": "2026-07-09T21:12:41Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "4cfcbf510398bd19",
+      "query": "minecraft cushion",
+      "value": "+3000%"
+    },
+    {
+      "id": "b1d0051f6cd631fe",
+      "query": "dappled forest minecraft",
+      "value": "+40%"
+    },
+    {
+      "id": "73322a7de6925acc",
+      "query": "minecraft videos",
+      "value": "+60%"
+    }
+  ]
 }
