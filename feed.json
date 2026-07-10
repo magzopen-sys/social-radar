@@ -1,28 +1,7 @@
 {
-  "generated_at": "2026-07-10T05:54:22Z",
+  "generated_at": "2026-07-10T09:17:25Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "85c6d489bd9fc899",
-      "query": "minecraft cushion update",
-      "value": "+7250%"
-    },
-    {
-      "id": "9befe2e4744d3368",
-      "query": "new minecraft update",
-      "value": "+50%"
-    },
-    {
-      "id": "b1d0051f6cd631fe",
-      "query": "dappled forest minecraft",
-      "value": "+50%"
-    },
-    {
-      "id": "6710c58dcd315d00",
-      "query": "minecraft scholarship",
-      "value": "+40%"
-    }
-  ]
+  "google_trends": []
 }
