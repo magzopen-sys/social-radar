@@ -1,23 +1,28 @@
 {
-  "generated_at": "2026-07-11T10:54:33Z",
+  "generated_at": "2026-07-11T12:54:16Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
+      "id": "bd7180dd160a0b97",
+      "query": "minecraft cushions",
+      "value": "+21450%"
+    },
+    {
       "id": "85c6d489bd9fc899",
       "query": "minecraft cushion update",
-      "value": "+12750%"
+      "value": "+12550%"
     },
     {
       "id": "4cfcbf510398bd19",
       "query": "minecraft cushion",
-      "value": "+5750%"
+      "value": "+5350%"
     },
     {
       "id": "2dc1f6968235b4c4",
       "query": "are cushions in minecraft bedrock",
-      "value": "+4800%"
+      "value": "+4650%"
     },
     {
       "id": "9befe2e4744d3368",
@@ -25,24 +30,19 @@
       "value": "+110%"
     },
     {
-      "id": "ff2eab54e501e6a4",
-      "query": "minecraft new update",
-      "value": "+110%"
-    },
-    {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+90%"
+      "value": "+100%"
     },
     {
       "id": "6710c58dcd315d00",
       "query": "minecraft scholarship",
-      "value": "+70%"
+      "value": "+60%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
-      "value": "+50%"
+      "value": "+60%"
     }
   ]
 }
