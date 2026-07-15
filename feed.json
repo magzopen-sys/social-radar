@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-07-15T01:20:36Z",
+  "generated_at": "2026-07-15T04:40:36Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "2dc1f6968235b4c4",
-      "query": "are cushions in minecraft bedrock",
-      "value": "+1900%"
-    },
-    {
-      "id": "85c6d489bd9fc899",
-      "query": "minecraft cushion update",
-      "value": "+1450%"
-    },
-    {
-      "id": "4cfcbf510398bd19",
-      "query": "minecraft cushion",
-      "value": "+700%"
-    },
-    {
-      "id": "ff2eab54e501e6a4",
-      "query": "minecraft new update",
-      "value": "+130%"
-    },
-    {
-      "id": "9befe2e4744d3368",
-      "query": "new minecraft update",
-      "value": "+120%"
-    },
-    {
-      "id": "6710c58dcd315d00",
-      "query": "minecraft scholarship",
-      "value": "+80%"
-    },
-    {
-      "id": "b059bce9b56a5156",
-      "query": "minecraft update",
-      "value": "+60%"
-    },
-    {
-      "id": "b1d0051f6cd631fe",
-      "query": "dappled forest minecraft",
-      "value": "+60%"
-    },
-    {
-      "id": "e4d877a066e628b7",
-      "query": "verity mod",
-      "value": "+50%"
-    },
-    {
-      "id": "401825968b9f1c25",
-      "query": "verity minecraft mod",
-      "value": "+50%"
-    }
-  ]
+  "google_trends": []
 }
