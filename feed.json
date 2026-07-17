@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-07-17T13:03:22Z",
+  "generated_at": "2026-07-17T15:05:07Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "09ccd79e98991b50",
-      "query": "minecraft aether legends",
-      "value": "+3050%"
-    },
-    {
-      "id": "a7adcff2850798b4",
-      "query": "how to make cushions in minecraft",
-      "value": "+180%"
-    },
-    {
-      "id": "2dc1f6968235b4c4",
-      "query": "are cushions in minecraft bedrock",
-      "value": "+130%"
-    },
-    {
-      "id": "7ba1097fbf56f706",
-      "query": "verity mod minecraft bedrock",
-      "value": "+90%"
-    },
-    {
-      "id": "e6d1d3f36210857f",
-      "query": "verity mod minecraft",
-      "value": "+80%"
-    },
-    {
-      "id": "e4d877a066e628b7",
-      "query": "verity mod",
-      "value": "+70%"
-    },
-    {
-      "id": "713b76712f16324b",
-      "query": "minecraft verity",
-      "value": "+70%"
-    },
-    {
-      "id": "6710c58dcd315d00",
-      "query": "minecraft scholarship",
-      "value": "+60%"
-    },
-    {
-      "id": "85c6d489bd9fc899",
-      "query": "minecraft cushion update",
-      "value": "+60%"
-    },
-    {
-      "id": "42c7ab66f86f6f7e",
-      "query": "verity",
-      "value": "+50%"
-    }
-  ]
+  "google_trends": []
 }
