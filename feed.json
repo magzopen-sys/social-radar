@@ -1,7 +1,53 @@
 {
-  "generated_at": "2026-07-19T11:03:46Z",
+  "generated_at": "2026-07-19T12:53:16Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "09ccd79e98991b50",
+      "query": "minecraft aether legends",
+      "value": "+3100%"
+    },
+    {
+      "id": "f6933021703a4ae7",
+      "query": "minecraft authentication servers are down",
+      "value": "+400%"
+    },
+    {
+      "id": "b921b73ef5c2319e",
+      "query": "aether minecraft",
+      "value": "+300%"
+    },
+    {
+      "id": "e6d1d3f36210857f",
+      "query": "verity mod minecraft",
+      "value": "+110%"
+    },
+    {
+      "id": "7ba1097fbf56f706",
+      "query": "verity mod minecraft bedrock",
+      "value": "+110%"
+    },
+    {
+      "id": "e4d877a066e628b7",
+      "query": "verity mod",
+      "value": "+100%"
+    },
+    {
+      "id": "0631575318136923",
+      "query": "what is verity minecraft",
+      "value": "+80%"
+    },
+    {
+      "id": "42c7ab66f86f6f7e",
+      "query": "verity",
+      "value": "+70%"
+    },
+    {
+      "id": "be83bdad3c3720c1",
+      "query": "verity minecraft",
+      "value": "+70%"
+    }
+  ]
 }
