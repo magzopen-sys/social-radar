@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T18:50:09Z",
+  "generated_at": "2026-07-19T20:37:34Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,7 +7,7 @@
     {
       "id": "09ccd79e98991b50",
       "query": "minecraft aether legends",
-      "value": "+2700%"
+      "value": "+3150%"
     },
     {
       "id": "b921b73ef5c2319e",
@@ -17,11 +17,6 @@
     {
       "id": "7ba1097fbf56f706",
       "query": "verity mod minecraft bedrock",
-      "value": "+110%"
-    },
-    {
-      "id": "9b506afcbcca5b82",
-      "query": "minecraft verity mod",
       "value": "+100%"
     },
     {
@@ -30,19 +25,24 @@
       "value": "+90%"
     },
     {
+      "id": "e6d1d3f36210857f",
+      "query": "verity mod minecraft",
+      "value": "+80%"
+    },
+    {
       "id": "0631575318136923",
       "query": "what is verity minecraft",
       "value": "+80%"
     },
     {
-      "id": "be83bdad3c3720c1",
-      "query": "verity minecraft",
-      "value": "+60%"
-    },
-    {
       "id": "42c7ab66f86f6f7e",
       "query": "verity",
       "value": "+60%"
+    },
+    {
+      "id": "be83bdad3c3720c1",
+      "query": "verity minecraft",
+      "value": "+50%"
     }
   ]
 }
