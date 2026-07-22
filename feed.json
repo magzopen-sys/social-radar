@@ -1,7 +1,13 @@
 {
-  "generated_at": "2026-07-21T22:44:28Z",
+  "generated_at": "2026-07-22T01:30:18Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "09ccd79e98991b50",
+      "query": "minecraft aether legends",
+      "value": "+650%"
+    }
+  ]
 }
