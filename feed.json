@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-07-28T01:29:14Z",
+  "generated_at": "2026-07-28T04:54:04Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "a0eff61ef5b243fb",
+      "query": "microsoft minecraft hardware requirements",
+      "value": "+7850%"
+    },
+    {
+      "id": "e3bd93999730577e",
+      "query": "matcha flavored minecraft",
+      "value": "+5150%"
+    },
+    {
+      "id": "82c74d186c241c9f",
+      "query": "minecraft hive of harmony add-on",
+      "value": "+1200%"
+    },
+    {
+      "id": "949feae8c3573a24",
+      "query": "minecraft locator bar color checker",
+      "value": "+120%"
+    }
+  ]
 }
