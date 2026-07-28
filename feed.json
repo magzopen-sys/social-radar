@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-07-28T17:25:30Z",
+  "generated_at": "2026-07-28T19:06:19Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "e3bd93999730577e",
+      "query": "matcha flavored minecraft",
+      "value": "+9800%"
+    },
+    {
+      "id": "a0eff61ef5b243fb",
+      "query": "microsoft minecraft hardware requirements",
+      "value": "+8000%"
+    },
+    {
+      "id": "949feae8c3573a24",
+      "query": "minecraft locator bar color checker",
+      "value": "+80%"
+    }
+  ]
 }
