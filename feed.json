@@ -1,7 +1,18 @@
 {
-  "generated_at": "2026-08-02T16:45:58Z",
+  "generated_at": "2026-08-02T18:54:09Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "599620d2866bd112",
+      "query": "minecraft matcha flavored",
+      "value": "+600%"
+    },
+    {
+      "id": "a0eff61ef5b243fb",
+      "query": "microsoft minecraft hardware requirements",
+      "value": "+350%"
+    }
+  ]
 }
