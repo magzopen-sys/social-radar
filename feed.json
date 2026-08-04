@@ -1,7 +1,18 @@
 {
-  "generated_at": "2026-08-03T22:51:50Z",
+  "generated_at": "2026-08-04T01:24:48Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "bea3c08501fe86d1",
+      "query": "minecraft leviathan",
+      "value": "+500%"
+    },
+    {
+      "id": "e3bd93999730577e",
+      "query": "matcha flavored minecraft",
+      "value": "+160%"
+    }
+  ]
 }
