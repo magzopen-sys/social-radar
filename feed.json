@@ -1,38 +1,7 @@
 {
-  "generated_at": "2026-08-08T12:25:01Z",
+  "generated_at": "2026-08-08T14:22:41Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "716c915af7f656a3",
-      "query": "minecraft dimension clash pvp",
-      "value": "+1900%"
-    },
-    {
-      "id": "57d18cbd4177f706",
-      "query": "leviathan minecraft",
-      "value": "+1850%"
-    },
-    {
-      "id": "90df6f409800d791",
-      "query": "elder guardian minecraft",
-      "value": "+400%"
-    },
-    {
-      "id": "b1d0051f6cd631fe",
-      "query": "dappled forest minecraft",
-      "value": "+100%"
-    },
-    {
-      "id": "80562c2f31085c17",
-      "query": "minecraft switch 2",
-      "value": "+50%"
-    },
-    {
-      "id": "b059bce9b56a5156",
-      "query": "minecraft update",
-      "value": "+40%"
-    }
-  ]
+  "google_trends": []
 }
