@@ -1,12 +1,17 @@
 {
-  "generated_at": "2026-08-07T22:24:39Z",
+  "generated_at": "2026-08-08T00:50:38Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "57d18cbd4177f706",
-      "query": "leviathan minecraft",
+      "id": "716c915af7f656a3",
+      "query": "minecraft dimension clash pvp",
+      "value": "+1750%"
+    },
+    {
+      "id": "bea3c08501fe86d1",
+      "query": "minecraft leviathan",
       "value": "+1700%"
     },
     {
@@ -17,16 +22,16 @@
     {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+90%"
-    },
-    {
-      "id": "80562c2f31085c17",
-      "query": "minecraft switch 2",
-      "value": "+50%"
+      "value": "+80%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
+      "value": "+50%"
+    },
+    {
+      "id": "80562c2f31085c17",
+      "query": "minecraft switch 2",
       "value": "+40%"
     }
   ]
