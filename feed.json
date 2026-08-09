@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T20:19:31Z",
+  "generated_at": "2026-08-09T22:19:10Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -27,12 +27,17 @@
     {
       "id": "80562c2f31085c17",
       "query": "minecraft switch 2",
-      "value": "+80%"
+      "value": "+110%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
       "value": "+60%"
+    },
+    {
+      "id": "0113e98b435054f8",
+      "query": "warden minecraft",
+      "value": "+40%"
     }
   ]
 }
