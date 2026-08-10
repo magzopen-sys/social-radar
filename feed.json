@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T00:55:39Z",
+  "generated_at": "2026-08-10T03:43:14Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,12 +7,12 @@
     {
       "id": "57d18cbd4177f706",
       "query": "leviathan minecraft",
-      "value": "+2100%"
+      "value": "+2200%"
     },
     {
       "id": "8922163d23f17711",
       "query": "minecraft nintendo switch 2 release",
-      "value": "+1800%"
+      "value": "+1950%"
     },
     {
       "id": "90df6f409800d791",
@@ -22,7 +22,7 @@
     {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+110%"
+      "value": "+120%"
     },
     {
       "id": "80562c2f31085c17",
@@ -32,7 +32,12 @@
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
-      "value": "+60%"
+      "value": "+70%"
+    },
+    {
+      "id": "e4ba5f71e8034a1c",
+      "query": "minecraft warden",
+      "value": "+50%"
     }
   ]
 }
