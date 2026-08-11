@@ -1,7 +1,48 @@
 {
-  "generated_at": "2026-08-11T00:55:13Z",
+  "generated_at": "2026-08-11T03:25:46Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "8922163d23f17711",
+      "query": "minecraft nintendo switch 2 release",
+      "value": "+2100%"
+    },
+    {
+      "id": "90df6f409800d791",
+      "query": "elder guardian minecraft",
+      "value": "+550%"
+    },
+    {
+      "id": "9befe2e4744d3368",
+      "query": "new minecraft update",
+      "value": "+150%"
+    },
+    {
+      "id": "b1d0051f6cd631fe",
+      "query": "dappled forest minecraft",
+      "value": "+130%"
+    },
+    {
+      "id": "57d18cbd4177f706",
+      "query": "leviathan minecraft",
+      "value": "+110%"
+    },
+    {
+      "id": "80562c2f31085c17",
+      "query": "minecraft switch 2",
+      "value": "+100%"
+    },
+    {
+      "id": "b059bce9b56a5156",
+      "query": "minecraft update",
+      "value": "+60%"
+    },
+    {
+      "id": "e4ba5f71e8034a1c",
+      "query": "minecraft warden",
+      "value": "+60%"
+    }
+  ]
 }
