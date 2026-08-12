@@ -1,7 +1,53 @@
 {
-  "generated_at": "2026-08-12T20:31:57Z",
+  "generated_at": "2026-08-12T22:29:53Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "8f7fb658fb447fad",
+      "query": "speed and kai minecraft",
+      "value": "+3800%"
+    },
+    {
+      "id": "8922163d23f17711",
+      "query": "minecraft nintendo switch 2 release",
+      "value": "+1700%"
+    },
+    {
+      "id": "12512470709f3b33",
+      "query": "minecraft bosses",
+      "value": "+350%"
+    },
+    {
+      "id": "90df6f409800d791",
+      "query": "elder guardian minecraft",
+      "value": "+250%"
+    },
+    {
+      "id": "14797717765716b9",
+      "query": "the warden minecraft",
+      "value": "+130%"
+    },
+    {
+      "id": "e4ba5f71e8034a1c",
+      "query": "minecraft warden",
+      "value": "+80%"
+    },
+    {
+      "id": "80562c2f31085c17",
+      "query": "minecraft switch 2",
+      "value": "+50%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
+      "value": "+50%"
+    },
+    {
+      "id": "558dd761a62e0d94",
+      "query": "smite minecraft",
+      "value": "+40%"
+    }
+  ]
 }
