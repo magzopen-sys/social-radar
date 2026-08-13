@@ -1,7 +1,53 @@
 {
-  "generated_at": "2026-08-13T14:50:00Z",
+  "generated_at": "2026-08-13T16:44:03Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "8f7fb658fb447fad",
+      "query": "speed and kai minecraft",
+      "value": "+2300%"
+    },
+    {
+      "id": "71f832e8995ca7b8",
+      "query": "did kai and speed beat minecraft 2026",
+      "value": "+1750%"
+    },
+    {
+      "id": "8922163d23f17711",
+      "query": "minecraft nintendo switch 2 release",
+      "value": "+1450%"
+    },
+    {
+      "id": "a265974b89f5006e",
+      "query": "all minecraft bosses",
+      "value": "+600%"
+    },
+    {
+      "id": "3e466e9b3aba8981",
+      "query": "unspeakableplays minecraft",
+      "value": "+600%"
+    },
+    {
+      "id": "12512470709f3b33",
+      "query": "minecraft bosses",
+      "value": "+350%"
+    },
+    {
+      "id": "14797717765716b9",
+      "query": "the warden minecraft",
+      "value": "+120%"
+    },
+    {
+      "id": "90df6f409800d791",
+      "query": "elder guardian minecraft",
+      "value": "+100%"
+    },
+    {
+      "id": "0113e98b435054f8",
+      "query": "warden minecraft",
+      "value": "+90%"
+    }
+  ]
 }
