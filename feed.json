@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T16:39:53Z",
+  "generated_at": "2026-08-14T18:40:16Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,17 +7,22 @@
     {
       "id": "71f832e8995ca7b8",
       "query": "did kai and speed beat minecraft 2026",
-      "value": "+2400%"
+      "value": "+2550%"
     },
     {
       "id": "8f7fb658fb447fad",
       "query": "speed and kai minecraft",
-      "value": "+1200%"
+      "value": "+1100%"
     },
     {
       "id": "8922163d23f17711",
       "query": "minecraft nintendo switch 2 release",
-      "value": "+1150%"
+      "value": "+1000%"
+    },
+    {
+      "id": "a265974b89f5006e",
+      "query": "all minecraft bosses",
+      "value": "+450%"
     },
     {
       "id": "12512470709f3b33",
@@ -27,31 +32,26 @@
     {
       "id": "14797717765716b9",
       "query": "the warden minecraft",
-      "value": "+130%"
+      "value": "+110%"
     },
     {
-      "id": "90df6f409800d791",
-      "query": "elder guardian minecraft",
-      "value": "+60%"
-    },
-    {
-      "id": "0113e98b435054f8",
-      "query": "warden minecraft",
-      "value": "+60%"
+      "id": "e4ba5f71e8034a1c",
+      "query": "minecraft warden",
+      "value": "+70%"
     },
     {
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
-      "value": "+50%"
-    },
-    {
-      "id": "7f1f223e040f78aa",
-      "query": "what does smite do in minecraft",
-      "value": "+50%"
+      "value": "+60%"
     },
     {
       "id": "558dd761a62e0d94",
       "query": "smite minecraft",
+      "value": "+50%"
+    },
+    {
+      "id": "90df6f409800d791",
+      "query": "elder guardian minecraft",
       "value": "+50%"
     }
   ]
