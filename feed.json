@@ -1,13 +1,18 @@
 {
-  "generated_at": "2026-08-15T06:19:20Z",
+  "generated_at": "2026-08-15T08:16:07Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
+      "id": "71f832e8995ca7b8",
+      "query": "did kai and speed beat minecraft 2026",
+      "value": "+3800%"
+    },
+    {
       "id": "949feae8c3573a24",
       "query": "minecraft locator bar color checker",
-      "value": "+1150%"
+      "value": "+1000%"
     },
     {
       "id": "c7ad2243de6a5fcf",
@@ -17,7 +22,7 @@
     {
       "id": "8922163d23f17711",
       "query": "minecraft nintendo switch 2 release",
-      "value": "+600%"
+      "value": "+550%"
     },
     {
       "id": "8f7fb658fb447fad",
@@ -27,17 +32,17 @@
     {
       "id": "12512470709f3b33",
       "query": "minecraft bosses",
-      "value": "+170%"
-    },
-    {
-      "id": "14797717765716b9",
-      "query": "the warden minecraft",
-      "value": "+70%"
+      "value": "+160%"
     },
     {
       "id": "558dd761a62e0d94",
       "query": "smite minecraft",
-      "value": "+60%"
+      "value": "+90%"
+    },
+    {
+      "id": "14797717765716b9",
+      "query": "the warden minecraft",
+      "value": "+80%"
     },
     {
       "id": "7f1f223e040f78aa",
@@ -45,14 +50,9 @@
       "value": "+60%"
     },
     {
-      "id": "8a067693e97ac4b9",
-      "query": "minecraft education download",
-      "value": "+50%"
-    },
-    {
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
-      "value": "+50%"
+      "value": "+60%"
     }
   ]
 }
