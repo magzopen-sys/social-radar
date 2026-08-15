@@ -1,38 +1,43 @@
 {
-  "generated_at": "2026-08-15T16:11:59Z",
+  "generated_at": "2026-08-15T18:13:40Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "949feae8c3573a24",
-      "query": "minecraft locator bar color checker",
-      "value": "+1300%"
+      "id": "71f832e8995ca7b8",
+      "query": "did kai and speed beat minecraft 2026",
+      "value": "+2350%"
     },
     {
       "id": "c7ad2243de6a5fcf",
       "query": "minecraft locator bar color",
-      "value": "+1100%"
+      "value": "+1300%"
     },
     {
       "id": "8f7fb658fb447fad",
       "query": "speed and kai minecraft",
-      "value": "+400%"
+      "value": "+350%"
     },
     {
       "id": "8922163d23f17711",
       "query": "minecraft nintendo switch 2 release",
-      "value": "+400%"
+      "value": "+250%"
     },
     {
       "id": "12512470709f3b33",
       "query": "minecraft bosses",
-      "value": "+140%"
+      "value": "+120%"
     },
     {
-      "id": "558dd761a62e0d94",
-      "query": "smite minecraft",
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
       "value": "+70%"
+    },
+    {
+      "id": "d2d0260a82ca4e65",
+      "query": "dreamshift minecraft mod",
+      "value": "+60%"
     },
     {
       "id": "7f1f223e040f78aa",
@@ -40,19 +45,14 @@
       "value": "+60%"
     },
     {
-      "id": "8a067693e97ac4b9",
-      "query": "minecraft education download",
+      "id": "558dd761a62e0d94",
+      "query": "smite minecraft",
       "value": "+60%"
     },
     {
-      "id": "14797717765716b9",
-      "query": "the warden minecraft",
+      "id": "8a067693e97ac4b9",
+      "query": "minecraft education download",
       "value": "+50%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+40%"
     }
   ]
 }
