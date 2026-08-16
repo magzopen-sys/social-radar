@@ -1,48 +1,33 @@
 {
-  "generated_at": "2026-08-16T00:39:32Z",
+  "generated_at": "2026-08-16T02:51:29Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "71f832e8995ca7b8",
-      "query": "did kai and speed beat minecraft 2026",
-      "value": "+2250%"
-    },
-    {
       "id": "949feae8c3573a24",
       "query": "minecraft locator bar color checker",
-      "value": "+2000%"
+      "value": "+2150%"
+    },
+    {
+      "id": "71f832e8995ca7b8",
+      "query": "did kai and speed beat minecraft 2026",
+      "value": "+2050%"
     },
     {
       "id": "c7ad2243de6a5fcf",
       "query": "minecraft locator bar color",
-      "value": "+1600%"
-    },
-    {
-      "id": "49dbca8b5fa53127",
-      "query": "locator bar.crab.trade",
-      "value": "+650%"
+      "value": "+1800%"
     },
     {
       "id": "8f7fb658fb447fad",
       "query": "speed and kai minecraft",
-      "value": "+300%"
+      "value": "+250%"
     },
     {
       "id": "12512470709f3b33",
       "query": "minecraft bosses",
-      "value": "+100%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+70%"
-    },
-    {
-      "id": "7f1f223e040f78aa",
-      "query": "what does smite do in minecraft",
-      "value": "+70%"
+      "value": "+80%"
     },
     {
       "id": "558dd761a62e0d94",
@@ -50,8 +35,23 @@
       "value": "+60%"
     },
     {
-      "id": "ebc56023a1f107a0",
-      "query": "do a barrel roll",
+      "id": "7f1f223e040f78aa",
+      "query": "what does smite do in minecraft",
+      "value": "+60%"
+    },
+    {
+      "id": "8a067693e97ac4b9",
+      "query": "minecraft education download",
+      "value": "+50%"
+    },
+    {
+      "id": "14797717765716b9",
+      "query": "the warden minecraft",
+      "value": "+50%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
       "value": "+50%"
     }
   ]
