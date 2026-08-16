@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-08-16T02:51:29Z",
+  "generated_at": "2026-08-16T04:25:13Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
+      "id": "c7ad2243de6a5fcf",
+      "query": "minecraft locator bar color",
+      "value": "+1850%"
+    },
+    {
       "id": "949feae8c3573a24",
       "query": "minecraft locator bar color checker",
-      "value": "+2150%"
+      "value": "+1850%"
     },
     {
       "id": "71f832e8995ca7b8",
       "query": "did kai and speed beat minecraft 2026",
-      "value": "+2050%"
-    },
-    {
-      "id": "c7ad2243de6a5fcf",
-      "query": "minecraft locator bar color",
-      "value": "+1800%"
+      "value": "+1500%"
     },
     {
       "id": "8f7fb658fb447fad",
@@ -27,16 +27,16 @@
     {
       "id": "12512470709f3b33",
       "query": "minecraft bosses",
-      "value": "+80%"
-    },
-    {
-      "id": "558dd761a62e0d94",
-      "query": "smite minecraft",
-      "value": "+60%"
+      "value": "+70%"
     },
     {
       "id": "7f1f223e040f78aa",
       "query": "what does smite do in minecraft",
+      "value": "+60%"
+    },
+    {
+      "id": "558dd761a62e0d94",
+      "query": "smite minecraft",
       "value": "+60%"
     },
     {
@@ -45,14 +45,14 @@
       "value": "+50%"
     },
     {
-      "id": "14797717765716b9",
-      "query": "the warden minecraft",
+      "id": "ebc56023a1f107a0",
+      "query": "do a barrel roll",
       "value": "+50%"
     },
     {
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
-      "value": "+50%"
+      "value": "+40%"
     }
   ]
 }
