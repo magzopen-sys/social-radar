@@ -1,7 +1,48 @@
 {
-  "generated_at": "2026-08-18T14:22:05Z",
+  "generated_at": "2026-08-18T16:19:03Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "949feae8c3573a24",
+      "query": "minecraft locator bar color checker",
+      "value": "+5350%"
+    },
+    {
+      "id": "c7ad2243de6a5fcf",
+      "query": "minecraft locator bar color",
+      "value": "+2600%"
+    },
+    {
+      "id": "7f1f223e040f78aa",
+      "query": "what does smite do in minecraft",
+      "value": "+80%"
+    },
+    {
+      "id": "558dd761a62e0d94",
+      "query": "smite minecraft",
+      "value": "+80%"
+    },
+    {
+      "id": "8a067693e97ac4b9",
+      "query": "minecraft education download",
+      "value": "+60%"
+    },
+    {
+      "id": "ebc56023a1f107a0",
+      "query": "do a barrel roll",
+      "value": "+60%"
+    },
+    {
+      "id": "9163820666604bfa",
+      "query": "67",
+      "value": "+40%"
+    },
+    {
+      "id": "ea980e50bb9fe8ff",
+      "query": "geometry dash",
+      "value": "+40%"
+    }
+  ]
 }
