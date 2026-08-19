@@ -1,53 +1,7 @@
 {
-  "generated_at": "2026-08-19T08:23:46Z",
+  "generated_at": "2026-08-19T10:17:53Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "949feae8c3573a24",
-      "query": "minecraft locator bar color checker",
-      "value": "+5800%"
-    },
-    {
-      "id": "c7ad2243de6a5fcf",
-      "query": "minecraft locator bar color",
-      "value": "+2400%"
-    },
-    {
-      "id": "71f832e8995ca7b8",
-      "query": "did kai and speed beat minecraft 2026",
-      "value": "+700%"
-    },
-    {
-      "id": "ebc56023a1f107a0",
-      "query": "do a barrel roll",
-      "value": "+80%"
-    },
-    {
-      "id": "8a067693e97ac4b9",
-      "query": "minecraft education download",
-      "value": "+70%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+60%"
-    },
-    {
-      "id": "9163820666604bfa",
-      "query": "67",
-      "value": "+50%"
-    },
-    {
-      "id": "85dde1027107da74",
-      "query": "eaglercraft",
-      "value": "+40%"
-    },
-    {
-      "id": "68f722bf9c324d90",
-      "query": "minecraft dungeons 2 release date",
-      "value": "+40%"
-    }
-  ]
+  "google_trends": []
 }
