@@ -1,43 +1,7 @@
 {
-  "generated_at": "2026-08-20T14:25:36Z",
+  "generated_at": "2026-08-20T16:22:03Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "949feae8c3573a24",
-      "query": "minecraft locator bar color checker",
-      "value": "+4950%"
-    },
-    {
-      "id": "49dbca8b5fa53127",
-      "query": "locator bar.crab.trade",
-      "value": "+2500%"
-    },
-    {
-      "id": "c7ad2243de6a5fcf",
-      "query": "minecraft locator bar color",
-      "value": "+2450%"
-    },
-    {
-      "id": "ebc56023a1f107a0",
-      "query": "do a barrel roll",
-      "value": "+70%"
-    },
-    {
-      "id": "8a067693e97ac4b9",
-      "query": "minecraft education download",
-      "value": "+60%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+50%"
-    },
-    {
-      "id": "9163820666604bfa",
-      "query": "67",
-      "value": "+50%"
-    }
-  ]
+  "google_trends": []
 }
