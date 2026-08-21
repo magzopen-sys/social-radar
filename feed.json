@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T06:27:13Z",
+  "generated_at": "2026-08-21T08:26:41Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -12,21 +12,26 @@
     {
       "id": "49dbca8b5fa53127",
       "query": "locator bar.crab.trade",
-      "value": "+2650%"
+      "value": "+2700%"
     },
     {
       "id": "c7ad2243de6a5fcf",
       "query": "minecraft locator bar color",
-      "value": "+2200%"
+      "value": "+2350%"
     },
     {
       "id": "40a17b30f379d4c0",
       "query": "minecraft dungeons ii",
-      "value": "+170%"
+      "value": "+160%"
     },
     {
       "id": "ebc56023a1f107a0",
       "query": "do a barrel roll",
+      "value": "+60%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
       "value": "+60%"
     },
     {
@@ -38,16 +43,6 @@
       "id": "9163820666604bfa",
       "query": "67",
       "value": "+50%"
-    },
-    {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
-      "value": "+40%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+40%"
     }
   ]
 }
