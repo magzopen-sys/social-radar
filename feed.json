@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T08:17:15Z",
+  "generated_at": "2026-08-22T10:12:21Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,12 +7,12 @@
     {
       "id": "949feae8c3573a24",
       "query": "minecraft locator bar color checker",
-      "value": "+160%"
+      "value": "+140%"
     },
     {
       "id": "c7ad2243de6a5fcf",
       "query": "minecraft locator bar color",
-      "value": "+150%"
+      "value": "+130%"
     },
     {
       "id": "898cf4f88ced6884",
@@ -20,24 +20,14 @@
       "value": "+60%"
     },
     {
-      "id": "68f722bf9c324d90",
-      "query": "minecraft dungeons 2 release date",
-      "value": "+50%"
-    },
-    {
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
       "value": "+50%"
     },
     {
-      "id": "4969fd4d482fde91",
-      "query": "minecraft 1.8.8",
-      "value": "+40%"
-    },
-    {
-      "id": "ebc56023a1f107a0",
-      "query": "do a barrel roll",
-      "value": "+40%"
+      "id": "68f722bf9c324d90",
+      "query": "minecraft dungeons 2 release date",
+      "value": "+50%"
     },
     {
       "id": "9163820666604bfa",
@@ -47,6 +37,11 @@
     {
       "id": "8a067693e97ac4b9",
       "query": "minecraft education download",
+      "value": "+40%"
+    },
+    {
+      "id": "4969fd4d482fde91",
+      "query": "minecraft 1.8.8",
       "value": "+40%"
     }
   ]
