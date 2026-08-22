@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T06:20:58Z",
+  "generated_at": "2026-08-22T08:17:15Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,17 +7,17 @@
     {
       "id": "949feae8c3573a24",
       "query": "minecraft locator bar color checker",
-      "value": "+150%"
+      "value": "+160%"
     },
     {
       "id": "c7ad2243de6a5fcf",
       "query": "minecraft locator bar color",
-      "value": "+140%"
+      "value": "+150%"
     },
     {
       "id": "898cf4f88ced6884",
       "query": "minecraft dungeons 2",
-      "value": "+50%"
+      "value": "+60%"
     },
     {
       "id": "68f722bf9c324d90",
@@ -28,11 +28,6 @@
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
       "value": "+50%"
-    },
-    {
-      "id": "8a067693e97ac4b9",
-      "query": "minecraft education download",
-      "value": "+40%"
     },
     {
       "id": "4969fd4d482fde91",
@@ -47,6 +42,11 @@
     {
       "id": "9163820666604bfa",
       "query": "67",
+      "value": "+40%"
+    },
+    {
+      "id": "8a067693e97ac4b9",
+      "query": "minecraft education download",
       "value": "+40%"
     }
   ]
