@@ -1,23 +1,13 @@
 {
-  "generated_at": "2026-08-22T20:11:22Z",
+  "generated_at": "2026-08-22T22:11:14Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
-      "value": "+60%"
-    },
-    {
-      "id": "4b24b5be3a4fb491",
-      "query": "minecraft education",
-      "value": "+50%"
-    },
-    {
-      "id": "ffea1703d7e79c7c",
-      "query": "minecraft dungeons",
-      "value": "+50%"
+      "id": "1ce810f9e654abda",
+      "query": "minecraft crocs",
+      "value": "+90%"
     },
     {
       "id": "68f722bf9c324d90",
@@ -25,8 +15,28 @@
       "value": "+50%"
     },
     {
-      "id": "949feae8c3573a24",
-      "query": "minecraft locator bar color checker",
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+50%"
+    },
+    {
+      "id": "ebc56023a1f107a0",
+      "query": "do a barrel roll",
+      "value": "+40%"
+    },
+    {
+      "id": "9163820666604bfa",
+      "query": "67",
+      "value": "+40%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
+      "value": "+40%"
+    },
+    {
+      "id": "4969fd4d482fde91",
+      "query": "minecraft 1.8.8",
       "value": "+40%"
     }
   ]
