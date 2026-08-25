@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T22:14:52Z",
+  "generated_at": "2026-08-25T00:38:19Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,7 +7,12 @@
     {
       "id": "1ce810f9e654abda",
       "query": "minecraft crocs",
-      "value": "+110%"
+      "value": "+120%"
+    },
+    {
+      "id": "175e4d0cffb4bb8c",
+      "query": "lapis minecraft",
+      "value": "+70%"
     },
     {
       "id": "898cf4f88ced6884",
@@ -15,8 +20,23 @@
       "value": "+50%"
     },
     {
+      "id": "ffea1703d7e79c7c",
+      "query": "minecraft dungeons",
+      "value": "+50%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
+      "value": "+50%"
+    },
+    {
       "id": "f24a6a12095cfaa0",
       "query": "steve from minecraft",
+      "value": "+40%"
+    },
+    {
+      "id": "d86f05408e53be08",
+      "query": "steve minecraft",
       "value": "+40%"
     }
   ]
