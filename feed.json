@@ -1,17 +1,27 @@
 {
-  "generated_at": "2026-08-25T14:34:22Z",
+  "generated_at": "2026-08-25T16:23:55Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
+    {
+      "id": "f4537d5a7e22810b",
+      "query": "strawberry minecraft house",
+      "value": "+200%"
+    },
     {
       "id": "1ce810f9e654abda",
       "query": "minecraft crocs",
       "value": "+130%"
     },
     {
-      "id": "75e64d8241e8c698",
-      "query": "minecraft steve",
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+60%"
+    },
+    {
+      "id": "ffea1703d7e79c7c",
+      "query": "minecraft dungeons",
       "value": "+60%"
     },
     {
@@ -20,24 +30,14 @@
       "value": "+60%"
     },
     {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
-      "value": "+60%"
-    },
-    {
-      "id": "d6a345a308a9b596",
-      "query": "alex minecraft",
+      "id": "d86f05408e53be08",
+      "query": "steve minecraft",
       "value": "+50%"
-    },
-    {
-      "id": "ffea1703d7e79c7c",
-      "query": "minecraft dungeons",
-      "value": "+40%"
     },
     {
       "id": "4b24b5be3a4fb491",
       "query": "minecraft education",
-      "value": "+40%"
+      "value": "+50%"
     }
   ]
 }
