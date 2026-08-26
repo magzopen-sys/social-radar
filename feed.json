@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T12:28:58Z",
+  "generated_at": "2026-08-26T14:34:17Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,7 +7,7 @@
     {
       "id": "f4537d5a7e22810b",
       "query": "strawberry minecraft house",
-      "value": "+1850%"
+      "value": "+2700%"
     },
     {
       "id": "1ce810f9e654abda",
@@ -20,9 +20,9 @@
       "value": "+60%"
     },
     {
-      "id": "75e64d8241e8c698",
-      "query": "minecraft steve",
-      "value": "+60%"
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+50%"
     },
     {
       "id": "9163820666604bfa",
@@ -30,8 +30,13 @@
       "value": "+50%"
     },
     {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
+      "id": "75e64d8241e8c698",
+      "query": "minecraft steve",
+      "value": "+40%"
+    },
+    {
+      "id": "ffea1703d7e79c7c",
+      "query": "minecraft dungeons",
       "value": "+40%"
     }
   ]
