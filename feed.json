@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T22:35:03Z",
+  "generated_at": "2026-08-27T05:40:56Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -10,14 +10,24 @@
       "value": "+4050%"
     },
     {
-      "id": "1ce810f9e654abda",
-      "query": "minecraft crocs",
+      "id": "e2b2ac075b6339ca",
+      "query": "the frustrated gamer minecraft",
+      "value": "+2000%"
+    },
+    {
+      "id": "c227ee2fa02110b4",
+      "query": "crumbl minecraft",
+      "value": "+750%"
+    },
+    {
+      "id": "75e64d8241e8c698",
+      "query": "minecraft steve",
       "value": "+70%"
     },
     {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
-      "value": "+60%"
+      "id": "7ff256186ad94db0",
+      "query": "fortnite",
+      "value": "+70%"
     },
     {
       "id": "f24a6a12095cfaa0",
@@ -25,14 +35,24 @@
       "value": "+60%"
     },
     {
-      "id": "d86f05408e53be08",
-      "query": "steve minecraft",
-      "value": "+50%"
+      "id": "1ce810f9e654abda",
+      "query": "minecraft crocs",
+      "value": "+60%"
+    },
+    {
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+60%"
     },
     {
       "id": "9163820666604bfa",
       "query": "67",
       "value": "+50%"
+    },
+    {
+      "id": "85dde1027107da74",
+      "query": "eaglercraft",
+      "value": "+40%"
     }
   ]
 }
