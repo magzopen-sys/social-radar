@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T17:03:23Z",
+  "generated_at": "2026-08-28T01:53:25Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,32 +7,22 @@
     {
       "id": "f4537d5a7e22810b",
       "query": "strawberry minecraft house",
-      "value": "+3600%"
-    },
-    {
-      "id": "e2b2ac075b6339ca",
-      "query": "the frustrated gamer minecraft",
-      "value": "+1200%"
+      "value": "+4150%"
     },
     {
       "id": "c227ee2fa02110b4",
       "query": "crumbl minecraft",
-      "value": "+800%"
+      "value": "+1500%"
     },
     {
       "id": "9924be85490fd03a",
       "query": "crumbl minecraft dessert menu",
-      "value": "+750%"
+      "value": "+1500%"
     },
     {
       "id": "f24a6a12095cfaa0",
       "query": "steve from minecraft",
-      "value": "+60%"
-    },
-    {
-      "id": "898cf4f88ced6884",
-      "query": "minecraft dungeons 2",
-      "value": "+60%"
+      "value": "+50%"
     },
     {
       "id": "d86f05408e53be08",
@@ -40,9 +30,19 @@
       "value": "+50%"
     },
     {
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+50%"
+    },
+    {
       "id": "9163820666604bfa",
       "query": "67",
       "value": "+50%"
+    },
+    {
+      "id": "4b24b5be3a4fb491",
+      "query": "minecraft education",
+      "value": "+40%"
     }
   ]
 }
