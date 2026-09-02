@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-09-02T12:22:31Z",
+  "generated_at": "2026-09-02T17:29:51Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "b40d70c190ce5b86",
-      "query": "crumbl minecraft collaboration menu",
-      "value": "+20400%"
-    },
-    {
-      "id": "3c2514cc60c73f53",
-      "query": "crumbl minecraft cookies",
-      "value": "+6400%"
-    },
-    {
-      "id": "9924be85490fd03a",
-      "query": "crumbl minecraft dessert menu",
-      "value": "+3250%"
-    },
-    {
-      "id": "78434027896281a0",
-      "query": "nintendo minecraft minecoin policy update",
-      "value": "+3100%"
-    },
-    {
-      "id": "c227ee2fa02110b4",
-      "query": "crumbl minecraft",
-      "value": "+2850%"
-    },
-    {
-      "id": "fcaffbee316dbc5f",
-      "query": "minecraft crumbl cookie",
-      "value": "+2400%"
-    },
-    {
-      "id": "0b4e3a52f99345e1",
-      "query": "crumble minecraft",
-      "value": "+1800%"
-    },
-    {
-      "id": "dd670cff30a75723",
-      "query": "crumbl x minecraft",
-      "value": "+750%"
-    },
-    {
-      "id": "196e79be58cf95a0",
-      "query": "minecraft capes",
-      "value": "+60%"
-    },
-    {
-      "id": "68f722bf9c324d90",
-      "query": "minecraft dungeons 2 release date",
-      "value": "+50%"
-    }
-  ]
+  "google_trends": []
 }
