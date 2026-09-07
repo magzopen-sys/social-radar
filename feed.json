@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-09-06T23:20:18Z",
+  "generated_at": "2026-09-07T01:47:43Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "02880bb823342330",
-      "query": "technoblade minecraft creator documentary project",
-      "value": "+8050%"
-    },
-    {
       "id": "78434027896281a0",
       "query": "nintendo minecraft minecoin policy update",
-      "value": "+4800%"
+      "value": "+7200%"
+    },
+    {
+      "id": "02880bb823342330",
+      "query": "technoblade minecraft creator documentary project",
+      "value": "+6500%"
     },
     {
       "id": "2706783ccf9e86bb",
       "query": "minecraft crumbl cookie flavors",
-      "value": "+1050%"
-    },
-    {
-      "id": "9b241172c8e60286",
-      "query": "crumbl cookie minecraft",
-      "value": "+650%"
+      "value": "+900%"
     },
     {
       "id": "0a30893a7f168be9",
       "query": "crumbl cookie",
+      "value": "+650%"
+    },
+    {
+      "id": "9b241172c8e60286",
+      "query": "crumbl cookie minecraft",
       "value": "+600%"
     },
     {
       "id": "e10a46c06f78a327",
       "query": "crumbl minecraft spoons",
-      "value": "+500%"
+      "value": "+450%"
     },
     {
       "id": "0b4e3a52f99345e1",
@@ -40,18 +40,18 @@
       "value": "+450%"
     },
     {
-      "id": "8cc75c9a540f3e64",
-      "query": "minecraft cookies",
-      "value": "+300%"
-    },
-    {
-      "id": "63ff67a30b7427f6",
-      "query": "minecraft crumbl cookies",
-      "value": "+300%"
-    },
-    {
       "id": "c35d5bc9d79c2bc4",
       "query": "minecraft crumbl",
+      "value": "+300%"
+    },
+    {
+      "id": "3c2514cc60c73f53",
+      "query": "crumbl minecraft cookies",
+      "value": "+300%"
+    },
+    {
+      "id": "8cc75c9a540f3e64",
+      "query": "minecraft cookies",
       "value": "+300%"
     }
   ]
