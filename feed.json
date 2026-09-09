@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-09-09T02:04:11Z",
+  "generated_at": "2026-09-09T08:27:35Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "02880bb823342330",
-      "query": "technoblade minecraft creator documentary project",
-      "value": "+7950%"
-    },
-    {
       "id": "0ac3c8c067668403",
       "query": "mike tomlin minecraft",
-      "value": "+3000%"
+      "value": "+5800%"
+    },
+    {
+      "id": "02880bb823342330",
+      "query": "technoblade minecraft creator documentary project",
+      "value": "+5200%"
     },
     {
       "id": "e9a88117887978f9",
       "query": "minecraft sounding",
-      "value": "+800%"
+      "value": "+850%"
     }
   ]
 }
