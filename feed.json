@@ -1,33 +1,7 @@
 {
-  "generated_at": "2026-09-15T06:56:34Z",
+  "generated_at": "2026-09-15T12:58:45Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "0ac3c8c067668403",
-      "query": "mike tomlin minecraft",
-      "value": "+13400%"
-    },
-    {
-      "id": "0f21e2c676e7e168",
-      "query": "minecraft world in a table",
-      "value": "+1550%"
-    },
-    {
-      "id": "899c0ff52edf5628",
-      "query": "minecraft cat videos",
-      "value": "+450%"
-    },
-    {
-      "id": "75754384b1a50c92",
-      "query": "sonic the hedgehog",
-      "value": "+60%"
-    },
-    {
-      "id": "e3c5edd007b56b10",
-      "query": "minecraft villager",
-      "value": "+60%"
-    }
-  ]
+  "google_trends": []
 }
