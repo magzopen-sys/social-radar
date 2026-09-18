@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T17:28:54Z",
+  "generated_at": "2026-09-18T20:07:57Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,7 +7,7 @@
     {
       "id": "249c6aa2794fa870",
       "query": "gpt-6 astra minecraft test",
-      "value": "+12300%"
+      "value": "+21550%"
     },
     {
       "id": "67c18fe6d028a477",
@@ -27,17 +27,17 @@
     {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+190%"
+      "value": "+200%"
     },
     {
       "id": "cb8d0cd63590dc2a",
       "query": "minecraft wilderness bound update",
-      "value": "+180%"
+      "value": "+170%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
-      "value": "+120%"
+      "value": "+130%"
     },
     {
       "id": "d648c0a3acc03562",
@@ -45,14 +45,14 @@
       "value": "+100%"
     },
     {
-      "id": "0f21e2c676e7e168",
-      "query": "minecraft world in a table",
-      "value": "+60%"
-    },
-    {
       "id": "ca6db5102c4de4aa",
       "query": "minecraft updates",
       "value": "+60%"
+    },
+    {
+      "id": "0f21e2c676e7e168",
+      "query": "minecraft world in a table",
+      "value": "+50%"
     }
   ]
 }
