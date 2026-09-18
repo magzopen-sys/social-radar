@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T08:35:12Z",
+  "generated_at": "2026-09-18T13:58:21Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,16 +7,16 @@
     {
       "id": "249c6aa2794fa870",
       "query": "gpt-6 astra minecraft test",
-      "value": "+20250%"
-    },
-    {
-      "id": "3a2a1baa35caf074",
-      "query": "new minecraft biome",
-      "value": "+350%"
+      "value": "+19650%"
     },
     {
       "id": "67c18fe6d028a477",
       "query": "minecraft 26.3",
+      "value": "+350%"
+    },
+    {
+      "id": "3a2a1baa35caf074",
+      "query": "new minecraft biome",
       "value": "+350%"
     },
     {
@@ -32,12 +32,17 @@
     {
       "id": "cb8d0cd63590dc2a",
       "query": "minecraft wilderness bound update",
-      "value": "+190%"
+      "value": "+180%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
-      "value": "+110%"
+      "value": "+120%"
+    },
+    {
+      "id": "d648c0a3acc03562",
+      "query": "when does the new minecraft update come out",
+      "value": "+90%"
     },
     {
       "id": "0f21e2c676e7e168",
@@ -48,11 +53,6 @@
       "id": "ca6db5102c4de4aa",
       "query": "minecraft updates",
       "value": "+70%"
-    },
-    {
-      "id": "75754384b1a50c92",
-      "query": "sonic the hedgehog",
-      "value": "+40%"
     }
   ]
 }
