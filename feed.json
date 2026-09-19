@@ -1,7 +1,53 @@
 {
-  "generated_at": "2026-09-19T13:34:20Z",
+  "generated_at": "2026-09-19T16:53:15Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "249c6aa2794fa870",
+      "query": "gpt-6 astra minecraft test",
+      "value": "+21950%"
+    },
+    {
+      "id": "67c18fe6d028a477",
+      "query": "minecraft 26.3",
+      "value": "+500%"
+    },
+    {
+      "id": "3a2a1baa35caf074",
+      "query": "new minecraft biome",
+      "value": "+400%"
+    },
+    {
+      "id": "ff2eab54e501e6a4",
+      "query": "minecraft new update",
+      "value": "+250%"
+    },
+    {
+      "id": "b1d0051f6cd631fe",
+      "query": "dappled forest minecraft",
+      "value": "+250%"
+    },
+    {
+      "id": "cb8d0cd63590dc2a",
+      "query": "minecraft wilderness bound update",
+      "value": "+140%"
+    },
+    {
+      "id": "b059bce9b56a5156",
+      "query": "minecraft update",
+      "value": "+120%"
+    },
+    {
+      "id": "6aa1dd204f619297",
+      "query": "minecraft wilderness bound",
+      "value": "+120%"
+    },
+    {
+      "id": "ca6db5102c4de4aa",
+      "query": "minecraft updates",
+      "value": "+60%"
+    }
+  ]
 }
