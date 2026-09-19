@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T23:44:52Z",
+  "generated_at": "2026-09-19T02:10:04Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,7 +7,7 @@
     {
       "id": "249c6aa2794fa870",
       "query": "gpt-6 astra minecraft test",
-      "value": "+16850%"
+      "value": "+20750%"
     },
     {
       "id": "67c18fe6d028a477",
@@ -17,17 +17,17 @@
     {
       "id": "3a2a1baa35caf074",
       "query": "new minecraft biome",
-      "value": "+350%"
+      "value": "+400%"
     },
     {
-      "id": "ff2eab54e501e6a4",
-      "query": "minecraft new update",
+      "id": "9befe2e4744d3368",
+      "query": "new minecraft update",
       "value": "+250%"
     },
     {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+190%"
+      "value": "+200%"
     },
     {
       "id": "cb8d0cd63590dc2a",
@@ -47,7 +47,12 @@
     {
       "id": "ca6db5102c4de4aa",
       "query": "minecraft updates",
-      "value": "+60%"
+      "value": "+70%"
+    },
+    {
+      "id": "0f21e2c676e7e168",
+      "query": "minecraft world in a table",
+      "value": "+40%"
     }
   ]
 }
