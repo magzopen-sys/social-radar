@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T16:04:52Z",
+  "generated_at": "2026-09-21T21:22:43Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,22 +7,17 @@
     {
       "id": "249c6aa2794fa870",
       "query": "gpt-6 astra minecraft test",
-      "value": "+29000%"
+      "value": "+25200%"
     },
     {
       "id": "67c18fe6d028a477",
       "query": "minecraft 26.3",
-      "value": "+750%"
+      "value": "+700%"
     },
     {
       "id": "3a2a1baa35caf074",
       "query": "new minecraft biome",
-      "value": "+650%"
-    },
-    {
-      "id": "9befe2e4744d3368",
-      "query": "new minecraft update",
-      "value": "+350%"
+      "value": "+700%"
     },
     {
       "id": "b1d0051f6cd631fe",
@@ -30,8 +25,13 @@
       "value": "+350%"
     },
     {
-      "id": "fbf885c51fd1282a",
-      "query": "wilderness bound minecraft",
+      "id": "ff2eab54e501e6a4",
+      "query": "minecraft new update",
+      "value": "+350%"
+    },
+    {
+      "id": "6aa1dd204f619297",
+      "query": "minecraft wilderness bound",
       "value": "+250%"
     },
     {
@@ -52,7 +52,7 @@
     {
       "id": "ca6db5102c4de4aa",
       "query": "minecraft updates",
-      "value": "+100%"
+      "value": "+90%"
     }
   ]
 }
