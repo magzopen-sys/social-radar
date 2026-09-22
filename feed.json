@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T17:49:31Z",
+  "generated_at": "2026-09-22T20:38:24Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,52 +7,52 @@
     {
       "id": "249c6aa2794fa870",
       "query": "gpt-6 astra minecraft test",
-      "value": "+34550%"
+      "value": "+33800%"
     },
     {
       "id": "67c18fe6d028a477",
       "query": "minecraft 26.3",
-      "value": "+550%"
+      "value": "+450%"
     },
     {
       "id": "3a2a1baa35caf074",
       "query": "new minecraft biome",
-      "value": "+550%"
+      "value": "+400%"
     },
     {
       "id": "4b70cfd949e0c74c",
       "query": "how to make a cushion in minecraft",
-      "value": "+300%"
+      "value": "+250%"
     },
     {
       "id": "b1d0051f6cd631fe",
       "query": "dappled forest minecraft",
-      "value": "+300%"
+      "value": "+250%"
     },
     {
       "id": "a7adcff2850798b4",
       "query": "how to make cushions in minecraft",
-      "value": "+250%"
+      "value": "+200%"
     },
     {
       "id": "ff2eab54e501e6a4",
       "query": "minecraft new update",
-      "value": "+190%"
-    },
-    {
-      "id": "6aa1dd204f619297",
-      "query": "minecraft wilderness bound",
-      "value": "+90%"
+      "value": "+130%"
     },
     {
       "id": "b059bce9b56a5156",
       "query": "minecraft update",
-      "value": "+90%"
+      "value": "+60%"
     },
     {
-      "id": "cb8d0cd63590dc2a",
-      "query": "minecraft wilderness bound update",
-      "value": "+70%"
+      "id": "fbf885c51fd1282a",
+      "query": "wilderness bound minecraft",
+      "value": "+60%"
+    },
+    {
+      "id": "bde315328b1d43ff",
+      "query": "modded minecraft server hosting",
+      "value": "+50%"
     }
   ]
 }
