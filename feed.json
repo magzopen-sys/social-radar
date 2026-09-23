@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-09-23T14:31:29Z",
+  "generated_at": "2026-09-23T19:19:00Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "249c6aa2794fa870",
-      "query": "gpt-6 astra minecraft test",
-      "value": "+24700%"
-    },
-    {
       "id": "9f9d525307d56142",
       "query": "minecraft redeem",
-      "value": "+130%"
-    },
-    {
-      "id": "67c18fe6d028a477",
-      "query": "minecraft 26.3",
-      "value": "+120%"
+      "value": "+150%"
     },
     {
       "id": "3a2a1baa35caf074",
       "query": "new minecraft biome",
-      "value": "+100%"
+      "value": "+120%"
+    },
+    {
+      "id": "67c18fe6d028a477",
+      "query": "minecraft 26.3",
+      "value": "+110%"
+    },
+    {
+      "id": "249c6aa2794fa870",
+      "query": "gpt-6 astra minecraft test",
+      "value": "+70%"
     },
     {
       "id": "bde315328b1d43ff",
@@ -30,28 +30,23 @@
       "value": "+60%"
     },
     {
-      "id": "b1d0051f6cd631fe",
-      "query": "dappled forest minecraft",
-      "value": "+60%"
-    },
-    {
       "id": "fb95fe674e24e10e",
       "query": "best modded minecraft server hosting",
-      "value": "+50%"
-    },
-    {
-      "id": "e9ad7bc895fe62bb",
-      "query": "minecraft server hosting",
-      "value": "+50%"
-    },
-    {
-      "id": "4969fd4d482fde91",
-      "query": "minecraft 1.8.8",
-      "value": "+40%"
+      "value": "+60%"
     },
     {
       "id": "07b1568f999f5103",
       "query": "minecraft creeper",
+      "value": "+50%"
+    },
+    {
+      "id": "92185eb12c4438b8",
+      "query": "best minecraft server hosting",
+      "value": "+40%"
+    },
+    {
+      "id": "68f722bf9c324d90",
+      "query": "minecraft dungeons 2 release date",
       "value": "+40%"
     }
   ]
