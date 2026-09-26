@@ -1,17 +1,32 @@
 {
-  "generated_at": "2026-09-26T13:57:21Z",
+  "generated_at": "2026-09-26T17:35:11Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
+      "id": "2f00f0dc84f94635",
+      "query": "what time is minecraft live",
+      "value": "+950%"
+    },
+    {
       "id": "aec63bd4acb76bb3",
       "query": "minecraft live 2026",
-      "value": "+350%"
+      "value": "+500%"
     },
     {
       "id": "f9db1fd1805ff0c9",
       "query": "when is minecraft live",
+      "value": "+450%"
+    },
+    {
+      "id": "685218841dcae6bd",
+      "query": "the sift minecraft",
+      "value": "+350%"
+    },
+    {
+      "id": "3609a776078e861e",
+      "query": "minecraft live",
       "value": "+350%"
     },
     {
@@ -20,14 +35,9 @@
       "value": "+250%"
     },
     {
-      "id": "3609a776078e861e",
-      "query": "minecraft live",
-      "value": "+170%"
-    },
-    {
       "id": "898cf4f88ced6884",
       "query": "minecraft dungeons 2",
-      "value": "+100%"
+      "value": "+90%"
     },
     {
       "id": "f880486c7d9a5962",
@@ -35,24 +45,14 @@
       "value": "+80%"
     },
     {
-      "id": "bde315328b1d43ff",
-      "query": "modded minecraft server hosting",
+      "id": "68f722bf9c324d90",
+      "query": "minecraft dungeons 2 release date",
       "value": "+70%"
     },
     {
-      "id": "68f722bf9c324d90",
-      "query": "minecraft dungeons 2 release date",
+      "id": "ffea1703d7e79c7c",
+      "query": "minecraft dungeons",
       "value": "+60%"
-    },
-    {
-      "id": "fb95fe674e24e10e",
-      "query": "best modded minecraft server hosting",
-      "value": "+50%"
-    },
-    {
-      "id": "ebc56023a1f107a0",
-      "query": "do a barrel roll",
-      "value": "+50%"
     }
   ]
 }
