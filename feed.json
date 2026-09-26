@@ -1,33 +1,48 @@
 {
-  "generated_at": "2026-09-26T17:35:11Z",
+  "generated_at": "2026-09-26T20:20:24Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
   "google_trends": [
     {
-      "id": "2f00f0dc84f94635",
-      "query": "what time is minecraft live",
-      "value": "+950%"
+      "id": "7433c83813a2ceed",
+      "query": "sift minecraft",
+      "value": "+3050%"
+    },
+    {
+      "id": "00c2da7ac871c741",
+      "query": "minecraft the sift",
+      "value": "+2850%"
+    },
+    {
+      "id": "121a12d515f27a68",
+      "query": "minecraft new dimension",
+      "value": "+2800%"
+    },
+    {
+      "id": "a5aa5908dd784731",
+      "query": "the sift",
+      "value": "+2700%"
+    },
+    {
+      "id": "e90f60ee68e811c8",
+      "query": "minecraft sift dimension",
+      "value": "+2100%"
     },
     {
       "id": "aec63bd4acb76bb3",
       "query": "minecraft live 2026",
-      "value": "+500%"
+      "value": "+600%"
     },
     {
       "id": "f9db1fd1805ff0c9",
       "query": "when is minecraft live",
-      "value": "+450%"
-    },
-    {
-      "id": "685218841dcae6bd",
-      "query": "the sift minecraft",
-      "value": "+350%"
+      "value": "+500%"
     },
     {
       "id": "3609a776078e861e",
       "query": "minecraft live",
-      "value": "+350%"
+      "value": "+400%"
     },
     {
       "id": "9f9d525307d56142",
@@ -37,22 +52,7 @@
     {
       "id": "898cf4f88ced6884",
       "query": "minecraft dungeons 2",
-      "value": "+90%"
-    },
-    {
-      "id": "f880486c7d9a5962",
-      "query": "when does minecraft dungeons 2 release",
-      "value": "+80%"
-    },
-    {
-      "id": "68f722bf9c324d90",
-      "query": "minecraft dungeons 2 release date",
-      "value": "+70%"
-    },
-    {
-      "id": "ffea1703d7e79c7c",
-      "query": "minecraft dungeons",
-      "value": "+60%"
+      "value": "+100%"
     }
   ]
 }
