@@ -1,7 +1,58 @@
 {
-  "generated_at": "2026-09-30T07:41:07Z",
+  "generated_at": "2026-09-30T14:24:05Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "2ec0c46bef44cbfe",
+      "query": "minecraft aurora cape",
+      "value": "+37900%"
+    },
+    {
+      "id": "d1e2f715e4b08d64",
+      "query": "when is the sift coming to minecraft",
+      "value": "+24200%"
+    },
+    {
+      "id": "26b3a93a15294bc3",
+      "query": "new dimension minecraft",
+      "value": "+18250%"
+    },
+    {
+      "id": "a5aa5908dd784731",
+      "query": "the sift",
+      "value": "+13550%"
+    },
+    {
+      "id": "ebefd63ab042757f",
+      "query": "minecraft sift",
+      "value": "+13450%"
+    },
+    {
+      "id": "685218841dcae6bd",
+      "query": "the sift minecraft",
+      "value": "+13050%"
+    },
+    {
+      "id": "2bf7c085bebf3f41",
+      "query": "sift",
+      "value": "+13050%"
+    },
+    {
+      "id": "64a50b4b73ac3df7",
+      "query": "minecraft new dimension sift",
+      "value": "+13050%"
+    },
+    {
+      "id": "3d288a77d968446e",
+      "query": "is the sift coming to minecraft",
+      "value": "+10350%"
+    },
+    {
+      "id": "e90f60ee68e811c8",
+      "query": "minecraft sift dimension",
+      "value": "+10100%"
+    }
+  ]
 }
