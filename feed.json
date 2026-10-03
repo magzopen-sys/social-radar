@@ -1,7 +1,63 @@
 {
-  "generated_at": "2026-10-03T00:48:55Z",
+  "generated_at": "2026-10-03T07:16:06Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "865fced4e126f630",
+      "query": "aurora cape minecraft",
+      "value": "+33650%"
+    },
+    {
+      "id": "d1e2f715e4b08d64",
+      "query": "when is the sift coming to minecraft",
+      "value": "+27600%"
+    },
+    {
+      "id": "3d288a77d968446e",
+      "query": "is the sift coming to minecraft",
+      "value": "+9550%"
+    },
+    {
+      "id": "ab5cea03394d223d",
+      "query": "new minecraft dimension",
+      "value": "+9500%"
+    },
+    {
+      "id": "4927f23f57c6ad80",
+      "query": "mike tomlin",
+      "value": "+9450%"
+    },
+    {
+      "id": "0ac3c8c067668403",
+      "query": "mike tomlin minecraft",
+      "value": "+8850%"
+    },
+    {
+      "id": "80663abf4dff3eae",
+      "query": "mike tomlin minecraft city",
+      "value": "+8800%"
+    },
+    {
+      "id": "a5aa5908dd784731",
+      "query": "the sift",
+      "value": "+7650%"
+    },
+    {
+      "id": "64a50b4b73ac3df7",
+      "query": "minecraft new dimension sift",
+      "value": "+7600%"
+    },
+    {
+      "id": "685218841dcae6bd",
+      "query": "the sift minecraft",
+      "value": "+7550%"
+    },
+    {
+      "id": "898cf4f88ced6884",
+      "query": "minecraft dungeons 2",
+      "value": "+60%"
+    }
+  ]
 }
