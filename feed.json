@@ -1,58 +1,7 @@
 {
-  "generated_at": "2026-10-02T20:14:16Z",
+  "generated_at": "2026-10-03T00:48:55Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "865fced4e126f630",
-      "query": "aurora cape minecraft",
-      "value": "+57800%"
-    },
-    {
-      "id": "d1e2f715e4b08d64",
-      "query": "when is the sift coming to minecraft",
-      "value": "+27050%"
-    },
-    {
-      "id": "26b3a93a15294bc3",
-      "query": "new dimension minecraft",
-      "value": "+11350%"
-    },
-    {
-      "id": "0ac3c8c067668403",
-      "query": "mike tomlin minecraft",
-      "value": "+10350%"
-    },
-    {
-      "id": "4927f23f57c6ad80",
-      "query": "mike tomlin",
-      "value": "+9400%"
-    },
-    {
-      "id": "80663abf4dff3eae",
-      "query": "mike tomlin minecraft city",
-      "value": "+9400%"
-    },
-    {
-      "id": "3d288a77d968446e",
-      "query": "is the sift coming to minecraft",
-      "value": "+8100%"
-    },
-    {
-      "id": "685218841dcae6bd",
-      "query": "the sift minecraft",
-      "value": "+8000%"
-    },
-    {
-      "id": "a5aa5908dd784731",
-      "query": "the sift",
-      "value": "+7950%"
-    },
-    {
-      "id": "7433c83813a2ceed",
-      "query": "sift minecraft",
-      "value": "+7550%"
-    }
-  ]
+  "google_trends": []
 }
