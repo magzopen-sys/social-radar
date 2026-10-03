@@ -1,7 +1,58 @@
 {
-  "generated_at": "2026-10-03T12:50:39Z",
+  "generated_at": "2026-10-03T17:42:10Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "865fced4e126f630",
+      "query": "aurora cape minecraft",
+      "value": "+62500%"
+    },
+    {
+      "id": "d1e2f715e4b08d64",
+      "query": "when is the sift coming to minecraft",
+      "value": "+6450%"
+    },
+    {
+      "id": "0ac3c8c067668403",
+      "query": "mike tomlin minecraft",
+      "value": "+5200%"
+    },
+    {
+      "id": "4927f23f57c6ad80",
+      "query": "mike tomlin",
+      "value": "+5050%"
+    },
+    {
+      "id": "80663abf4dff3eae",
+      "query": "mike tomlin minecraft city",
+      "value": "+5050%"
+    },
+    {
+      "id": "5977ca515b5d38ae",
+      "query": "mike tomlin minecraft world",
+      "value": "+4350%"
+    },
+    {
+      "id": "1d07a43ecd9bfff6",
+      "query": "minecraft preview 26.60.29 ice cave",
+      "value": "+3400%"
+    },
+    {
+      "id": "863f5f927f91d612",
+      "query": "when will the sift come to minecraft",
+      "value": "+3050%"
+    },
+    {
+      "id": "ab5cea03394d223d",
+      "query": "new minecraft dimension",
+      "value": "+2450%"
+    },
+    {
+      "id": "3d288a77d968446e",
+      "query": "is the sift coming to minecraft",
+      "value": "+2350%"
+    }
+  ]
 }
