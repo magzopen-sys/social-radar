@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T00:13:47Z",
+  "generated_at": "2026-10-04T07:33:42Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,47 +7,42 @@
     {
       "id": "865fced4e126f630",
       "query": "aurora cape minecraft",
-      "value": "+38950%"
-    },
-    {
-      "id": "5977ca515b5d38ae",
-      "query": "mike tomlin minecraft world",
-      "value": "+3150%"
-    },
-    {
-      "id": "80663abf4dff3eae",
-      "query": "mike tomlin minecraft city",
-      "value": "+3100%"
-    },
-    {
-      "id": "0ac3c8c067668403",
-      "query": "mike tomlin minecraft",
-      "value": "+2750%"
+      "value": "+55300%"
     },
     {
       "id": "1d07a43ecd9bfff6",
       "query": "minecraft preview 26.60.29 ice cave",
-      "value": "+2550%"
+      "value": "+3450%"
+    },
+    {
+      "id": "80663abf4dff3eae",
+      "query": "mike tomlin minecraft city",
+      "value": "+2400%"
+    },
+    {
+      "id": "5977ca515b5d38ae",
+      "query": "mike tomlin minecraft world",
+      "value": "+2400%"
     },
     {
       "id": "4927f23f57c6ad80",
       "query": "mike tomlin",
-      "value": "+2500%"
+      "value": "+2200%"
+    },
+    {
+      "id": "0ac3c8c067668403",
+      "query": "mike tomlin minecraft",
+      "value": "+2150%"
     },
     {
       "id": "09f6bbe9c8b7f488",
       "query": "minecraft dungeons 2 codes",
-      "value": "+1650%"
+      "value": "+1950%"
     },
     {
       "id": "a19734e3188ecb7c",
       "query": "minecraft dungeons 2 release time",
-      "value": "+800%"
-    },
-    {
-      "id": "b1e6bf54590e4cb5",
-      "query": "minecraft dungeons 2 review",
-      "value": "+500%"
+      "value": "+750%"
     },
     {
       "id": "29c503964ec66f30",
@@ -55,9 +50,14 @@
       "value": "+500%"
     },
     {
+      "id": "b1e6bf54590e4cb5",
+      "query": "minecraft dungeons 2 review",
+      "value": "+500%"
+    },
+    {
       "id": "898cf4f88ced6884",
       "query": "minecraft dungeons 2",
-      "value": "+350%"
+      "value": "+550%"
     }
   ]
 }
