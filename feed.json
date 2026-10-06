@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T17:34:52Z",
+  "generated_at": "2026-10-06T22:00:00Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
@@ -7,26 +7,26 @@
     {
       "id": "1d07a43ecd9bfff6",
       "query": "minecraft preview 26.60.29 ice cave",
-      "value": "+3550%"
+      "value": "+2850%"
     },
     {
       "id": "80663abf4dff3eae",
       "query": "mike tomlin minecraft city",
-      "value": "+1550%"
-    },
-    {
-      "id": "1c23792de7f2199a",
-      "query": "tomlin minecraft",
-      "value": "+1450%"
-    },
-    {
-      "id": "0ac3c8c067668403",
-      "query": "mike tomlin minecraft",
-      "value": "+1400%"
+      "value": "+1700%"
     },
     {
       "id": "4927f23f57c6ad80",
       "query": "mike tomlin",
+      "value": "+1400%"
+    },
+    {
+      "id": "1c23792de7f2199a",
+      "query": "tomlin minecraft",
+      "value": "+1400%"
+    },
+    {
+      "id": "0ac3c8c067668403",
+      "query": "mike tomlin minecraft",
       "value": "+1300%"
     },
     {
@@ -35,29 +35,29 @@
       "value": "+1300%"
     },
     {
-      "id": "79f2a92139578021",
-      "query": "minecraft in elden ring",
-      "value": "+650%"
-    },
-    {
-      "id": "09f6bbe9c8b7f488",
-      "query": "minecraft dungeons 2 codes",
-      "value": "+600%"
-    },
-    {
       "id": "04c0a52763c496cf",
       "query": "minecraft dungeons 2 mods",
-      "value": "+600%"
+      "value": "+400%"
     },
     {
       "id": "f1baa892b673e5dd",
       "query": "minecraft dungeons 2 wiki",
-      "value": "+400%"
+      "value": "+300%"
+    },
+    {
+      "id": "09f6bbe9c8b7f488",
+      "query": "minecraft dungeons 2 codes",
+      "value": "+250%"
+    },
+    {
+      "id": "865fced4e126f630",
+      "query": "aurora cape minecraft",
+      "value": "+120%"
     },
     {
       "id": "898cf4f88ced6884",
       "query": "minecraft dungeons 2",
-      "value": "+60%"
+      "value": "+140%"
     }
   ]
 }
