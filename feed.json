@@ -1,7 +1,13 @@
 {
-  "generated_at": "2026-10-14T14:46:32Z",
+  "generated_at": "2026-10-14T19:49:53Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "401825968b9f1c25",
+      "query": "verity minecraft mod",
+      "value": "+60%"
+    }
+  ]
 }
