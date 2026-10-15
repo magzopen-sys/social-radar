@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-10-15T02:17:38Z",
+  "generated_at": "2026-10-15T08:40:35Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": []
+  "google_trends": [
+    {
+      "id": "f3af783c0cf59976",
+      "query": "minecraftle",
+      "value": "+200%"
+    },
+    {
+      "id": "401825968b9f1c25",
+      "query": "verity minecraft mod",
+      "value": "+60%"
+    },
+    {
+      "id": "bde315328b1d43ff",
+      "query": "modded minecraft server hosting",
+      "value": "+50%"
+    }
+  ]
 }
