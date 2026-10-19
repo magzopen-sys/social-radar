@@ -1,33 +1,7 @@
 {
-  "generated_at": "2026-10-19T16:41:51Z",
+  "generated_at": "2026-10-19T21:50:52Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "38729c60c7dca72e",
-      "query": "baguette",
-      "value": "+750%"
-    },
-    {
-      "id": "c20de8173f521a34",
-      "query": "elgoog",
-      "value": "+120%"
-    },
-    {
-      "id": "f3af783c0cf59976",
-      "query": "minecraftle",
-      "value": "+90%"
-    },
-    {
-      "id": "80556a35e6775a3b",
-      "query": "stranger things",
-      "value": "+80%"
-    },
-    {
-      "id": "401825968b9f1c25",
-      "query": "verity minecraft mod",
-      "value": "+50%"
-    }
-  ]
+  "google_trends": []
 }
