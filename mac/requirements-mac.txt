@@ -1,4 +1,7 @@
-# Mac-side scraper deps. Install into a venv, then fetch the browser:
+# Mac-side deps. Install into a venv, then fetch the browser:
+#   python3 -m venv .venv && source .venv/bin/activate
 #   pip install -r requirements-mac.txt
 #   python -m playwright install chromium
 playwright==1.47.0
+requests==2.32.3
+pytrends==4.9.2   # optional (Google Trends); may still rate-limit, that's fine

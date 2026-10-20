@@ -52,6 +52,25 @@ import requests
 # Make the vendored ./yars package importable regardless of cwd (anon fallback).
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+
+# Load keys from a local .env (git-ignored) if present, so credentials can live
+# on the machine that runs this instead of in the repo or in CI secrets. Real
+# environment variables always take precedence over .env values.
+def _load_dotenv(path: str) -> None:
+    try:
+        with open(path) as fh:
+            for line in fh:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    except FileNotFoundError:
+        pass
+
+
+_load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+
 GEO = os.getenv("GEO", "US")
 REDDIT_UA = os.getenv("REDDIT_USER_AGENT", "social-radar/1.0 (by /u/magzopen)")
 
