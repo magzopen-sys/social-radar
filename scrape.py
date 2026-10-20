@@ -105,7 +105,17 @@ def scrape_reddit() -> list[dict]:
     secret = os.getenv("REDDIT_CLIENT_SECRET")
 
     if cid and secret:
-        return _reddit_api(cid, secret, subs, min_score)
+        try:
+            return _reddit_api(cid, secret, subs, min_score)
+        except Exception as api_err:
+            # Reddit sometimes refuses new apps/accounts (403 at the token step).
+            # Public .json pages usually still work from a home connection.
+            print(f"[reddit] official API failed ({api_err}) — falling back to "
+                  "public .json pages", file=sys.stderr)
+            try:
+                return _reddit_anon(subs, min_score)
+            except Exception as anon_err:
+                raise RuntimeError(f"API: {api_err} | public pages: {anon_err}") from anon_err
 
     print("[reddit] REDDIT_CLIENT_ID/SECRET not set — falling back to anonymous "
           ".json, which Reddit usually 403s from GitHub Actions. Set the secrets "
@@ -470,7 +480,8 @@ def main() -> None:
     }
     STATUS["instagram"] = {
         "count": len(instagram), "ok": bool(instagram),
-        "note": "ok" if instagram else "no items (needs IG_SESSION; library is unmaintained)",
+        "note": "ok" if instagram else
+                "no items yet (run mac/mac_scraper.py --login once, then mac/mac_scraper.py)",
     }
     feed["sources"] = STATUS
 
