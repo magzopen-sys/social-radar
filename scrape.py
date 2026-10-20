@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
-Social radar orchestrator (runs on GitHub Actions).
+Social radar orchestrator (runs on the Mac, from mac/run.sh).
 
-Merges four sources into feed.json that the Odysseus bot ingests:
-  - TikTok + Instagram : produced by scrape_social.js (Node, run BEFORE this) -> social.json
-  - Reddit            : official Reddit API (OAuth app-only) — reliable on CI IPs
-  - Google Trends     : pytrends (best-effort; Google rate-limits CI IPs)
+Merges every source into feed.json, which ideas.py turns into ideas.md:
+  - TikTok + Instagram : mac/mac_scraper.py (logged-in browser, run BEFORE this) -> social.json
+  - TikTok (optional)  : official Research API, if your app is approved
+  - YouTube            : YouTube Data API v3
+  - Modrinth           : public API (Minecraft mods)
+  - Reddit             : official API, falling back to public .json pages
+  - Google Trends      : pytrends (best-effort; often rate-limited)
 
 Every source is best-effort and isolated, so one breaking doesn't sink the
-others. Each item carries a stable `id` so the bot only pings new trends.
+others. Each item carries a stable `id`.
 Each source also reports an honest status (count / ok / note) under `sources`,
 so an empty feed no longer looks like a silent success.
 

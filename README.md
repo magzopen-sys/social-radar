@@ -1,122 +1,43 @@
-# Social Radar — off-machine TikTok / Instagram / Google Trends scraper
+# Social Radar — Minecraft trend radar that runs on your Mac
 
-Your home PC's IP is blocked/rate-limited by TikTok, Instagram, Reddit (public),
-and Google Trends, and it's RAM-limited (it freezes). So the heavy scraping runs
-**for free on GitHub Actions** instead. It publishes a small `feed.json`; the
-Odysseus Discord bot reads it and pings you on new cross-platform trends.
+Once a day, your Mac checks what's trending in the Minecraft niche across
+TikTok, Instagram, YouTube, Modrinth (mods), Reddit and Google Trends, and
+writes a ranked list of content ideas to `ideas.md`. Everything runs and stays
+on your Mac.
 
 ```
-GitHub Actions (free, clean IP)        Your PC (light)
-  scrape.py hourly   ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
+mac/run.sh (daily, via launchd)
+  1) mac/mac_scraper.py -> social.json   TikTok + Instagram, from your logged-in browser
+  2) scrape.py          -> feed.json     YouTube + Modrinth + Reddit + Trends, merged
+  3) ideas.py           -> ideas.md      themes trending on 2+ platforms, hottest examples
 ```
 
-> **Two ways to run it:**
-> - **All on your Mac (recommended, keys stay local):** everything runs from a
->   git-ignored `.env` (or the macOS Keychain) on your machine and pushes
->   `feed.json`. No GitHub secrets. See **[`mac/README-mac.md`](mac/README-mac.md)**.
-> - **Cloud (GitHub Actions):** Reddit + YouTube run hourly in the cloud using
->   repo secrets; TikTok/IG still need the Mac. The scheduled cloud run is
->   currently disabled (see `.github/workflows/social-radar.yml`) so it can't
->   overwrite the Mac's feed — re-enable it only after adding the secrets.
+**Setup, the daily schedule and troubleshooting:** see
+[`mac/README-mac.md`](mac/README-mac.md).
 
-## One-time setup (~10 min)
+## Sources
 
-1. **Create a new GitHub repo** (e.g. `magz-social-radar`). Public is simplest
-   (then the feed has a public raw URL). Private works too — see note at bottom.
+| Source | How | Needs |
+|---|---|---|
+| TikTok | your logged-in browser (`mac_scraper.py`) | a TikTok login (hashtag pages also work logged out) |
+| Instagram | your logged-in browser | an Instagram login |
+| YouTube | YouTube Data API v3 | free `YOUTUBE_API_KEY` |
+| Modrinth | public API | nothing |
+| Reddit | official API, falls back to public pages | `REDDIT_CLIENT_ID` / `SECRET` (Reddit currently refuses new apps) |
+| Google Trends | pytrends | nothing; often rate-limited |
+| TikTok Research API | optional, tried before the browser | an *approved* Research API app |
 
-2. **Copy these files to the repo root** and push:
-   ```
-   scrape.py
-   requirements.txt
-   .github/workflows/social-radar.yml
-   ```
+Keys go in a git-ignored `.env` (copy `.env.example`) or the macOS Keychain.
 
-3. **Enable Actions** in the repo: Settings → Actions → General → allow, and under
-   "Workflow permissions" pick **Read and write** (so it can commit `feed.json`).
+## Reading the results
 
-4. **Run it once**: Actions tab → *social-radar* → *Run workflow*. After it finishes
-   you'll have a `feed.json` in the repo. Its raw URL is:
-   ```
-   https://raw.githubusercontent.com/<your-username>/magz-social-radar/main/feed.json
-   ```
-
-5. **Point the bot at it** — add to `~/odysseus/.env`:
-   ```
-   SOCIAL_FEED_URL=https://raw.githubusercontent.com/<your-username>/magz-social-radar/main/feed.json
-   ```
-   then `systemctl --user restart odysseus.service`.
-
-That's it — but see the Reddit setup below: Reddit now blocks anonymous requests
-from GitHub's IPs, so the two Reddit secrets are what make the feed actually fill.
-TikTok and IG are best-effort and get more reliable with the optional secrets below.
-
-## Reddit setup (2 min — makes Reddit reliable)
-
-Reddit returns **403** to anonymous `.json` requests from GitHub Actions IPs, so
-the scraper now uses the official Reddit API (app-only OAuth). You need a free
-Reddit "script" app:
-
-1. Go to <https://www.reddit.com/prefs/apps> → **create another app...**
-2. Pick type **script**. Name it anything (e.g. `social-radar`). For the
-   redirect URI put `http://localhost:8080` (unused, but required).
-3. After creating it you'll see:
-   - the **client id** — the string just under the app name (near "personal use script")
-   - the **secret** — labelled `secret`
-4. Add them as repo Secrets (Settings → Secrets and variables → Actions → New
-   repository secret):
-   - `REDDIT_CLIENT_ID`
-   - `REDDIT_CLIENT_SECRET`
-5. (Optional) Set a repo **Variable** `REDDIT_USER_AGENT`, e.g.
-   `social-radar/1.0 (by /u/yourname)`. There's a sensible default if you skip it.
-
-Without these secrets the scraper falls back to anonymous scraping, which will
-keep getting 403'd on CI — you'll see that clearly in the logs and in the new
-`sources` section of `feed.json`.
-
-Other tunables (optional repo Variables / env): `REDDIT_SUBS` (comma list),
-`REDDIT_MIN_SCORE` (default 100), `REDDIT_LIMIT` (default 50). To actually fill
-50 items/hour you need enough supply — keep several busy subreddits in
-`REDDIT_SUBS` and don't set `REDDIT_MIN_SCORE` too high.
-
-## YouTube setup (free, high volume — recommended)
-
-The YouTube Data API v3 gives you a free key and 10,000 quota units/day. One
-search returns up to 50 videos and costs 100 units, so hourly runs use a tiny
-fraction of the daily quota. This is the most reliable way to hit ~50/hour.
-
-1. Go to <https://console.cloud.google.com/> → create a project (any name).
-2. **APIs & Services → Library** → search **"YouTube Data API v3"** → **Enable**.
-3. **APIs & Services → Credentials → Create credentials → API key**. Copy it.
-4. Add it as a repo Secret: `YOUTUBE_API_KEY`.
-5. (Optional) repo Variable `YOUTUBE_QUERIES`, e.g.
-   `minecraft,minecraft shorts,minecraft build hacks`. Has a default.
-
-Tunables: `YOUTUBE_LIMIT` (default 50), `YOUTUBE_DAYS` (default 7, only recent videos).
-
-## TikTok + Instagram (run on your Mac, not Actions)
-
-GitHub Actions **cannot** scrape TikTok or Instagram — their datacenter IPs are
-blocked and both require a login. The old `scrape_social.js` path (tiktok-scraper
-/ instatouch) relied on libraries the platforms have since killed, so it returns
-nothing on CI. Those two platforms now run from a small local scraper on your Mac,
-using your logged-in browser and home IP, scheduled once a day. It writes
-`social.json` and pushes it; the hourly Action merges it in automatically.
-
-➡️ See **[`mac/README-mac.md`](mac/README-mac.md)** for setup (Playwright, one-time
-login, and the launchd daily schedule).
+- `ideas.md` — open it any time: `open ideas.md`.
+- `feed.json` — every item, plus a `sources` block saying how many items each
+  source returned and, if it failed, why.
 
 ## Content ideas (`ideas.py`)
 
-`python ideas.py` reads `feed.json` and writes `ideas.md`: themes trending across
-**multiple** platforms (the strongest signal), each with the hottest real example
-to riff on, plus the top individual posts. No API key — it's keyword/co-occurrence
-analysis. The Mac run regenerates and pushes `ideas.md` automatically.
-
-## Notes
-- **Free tier:** hourly ≈ 720 runs/mo × ~1 min each — well within the free
-  2,000 min/month for private repos, and unlimited for public repos.
-- **Private repo:** raw URLs need a token. Easiest is a public repo containing
-  *only* feed.json, or switch the bot to fetch via the GitHub API with a token.
-- **It will break sometimes** — these endpoints change. `scrape.py` degrades
-  gracefully (one source failing doesn't stop the others), and the Action logs
-  show what failed.
+Finds themes that show up on **more than one** platform (the strongest signal),
+each with the hottest real example to riff on, plus the top individual posts.
+It's keyword/co-occurrence analysis, no API key. Filler hashtags (`#fyp`,
+`#minecraftmemes`…) and promo spam are filtered out.
