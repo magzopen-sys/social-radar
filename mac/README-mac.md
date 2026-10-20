@@ -58,6 +58,21 @@ cat feed.json                     # check the "sources" block: ok/count per sour
 "tiktok":  {"count": 0,  "ok": false, "note": "no items ..."}
 ```
 
+## Choosing what it scrapes
+
+Add any of these to `../.env` (comma-separated):
+
+| Var | Default | What it opens |
+|---|---|---|
+| `TT_TAGS` | `minecraft,minecraftbuilds,minecraftmemes` | `tiktok.com/tag/<tag>` (works logged out) |
+| `TT_QUERIES` | `minecraft,minecraft build,minecraft shorts` | TikTok search (needs a TikTok login) |
+| `IG_ACCOUNTS` | `minecraft` | `instagram.com/<handle>/reels/` |
+| `IG_TAGS` | `minecraft,minecraftbuilds,minecraftmemes` | Instagram hashtag pages |
+| `SCROLLS` | `8` | max scrolls per page (stops early once a page stops growing) |
+
+Adding a few big Minecraft creators to `IG_ACCOUNTS` is the easiest way to get
+more Instagram results.
+
 ## Schedule it (launchd)
 
 `mac/run.sh` runs all three steps and pushes `feed.json`. To run it daily:

@@ -40,6 +40,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -64,10 +65,17 @@ HEADLESS = os.getenv("HEADLESS", "") not in ("", "0", "false", "False")
 # bundled Chromium. Set BROWSER_CHANNEL="" to force the bundled one.
 CHANNEL = os.getenv("BROWSER_CHANNEL", "chrome")
 
-TT_QUERIES = [q.strip() for q in os.getenv(
-    "TT_QUERIES", "minecraft,minecraft build,minecraft shorts").split(",") if q.strip()]
-IG_TAGS = [t.strip().lstrip("#") for t in os.getenv(
-    "IG_TAGS", "minecraft,minecraftbuilds,minecraftmemes").split(",") if t.strip()]
+def _env_list(name: str, default: str, strip: str = "") -> list[str]:
+    return [x.strip().lstrip(strip) for x in os.getenv(name, default).split(",") if x.strip()]
+
+
+# TikTok hashtag pages usually load logged-out; search pages require a login.
+TT_TAGS = _env_list("TT_TAGS", "minecraft,minecraftbuilds,minecraftmemes", "#")
+TT_QUERIES = _env_list("TT_QUERIES", "minecraft,minecraft build,minecraft shorts")
+# Instagram account Reels tabs load reliably; hashtag pages sometimes show
+# "Something went wrong" but often still return a few posts, so both are on.
+IG_ACCOUNTS = _env_list("IG_ACCOUNTS", "minecraft", "@")
+IG_TAGS = _env_list("IG_TAGS", "minecraft,minecraftbuilds,minecraftmemes", "#")
 
 
 # ── heuristic extractors: walk any JSON and pick out video/post objects ───────
@@ -100,7 +108,8 @@ def _walk_tiktok(node, out: dict):
 def _walk_instagram(node, out: dict):
     if isinstance(node, dict):
         sc = node.get("shortcode") or node.get("code")
-        if sc:
+        # Error objects also carry a "code" (e.g. 400); only accept real shortcodes.
+        if isinstance(sc, str) and re.fullmatch(r"[A-Za-z0-9_-]{6,20}", sc):
             cap = ""
             edges = (node.get("edge_media_to_caption") or {}).get("edges") or []
             if edges:
@@ -159,61 +168,61 @@ def _collect(page, walker, found: dict, debug_name: str | None):
 
 
 def _scroll(page, found: dict, label: str):
+    stalled = 0
     for i in range(SCROLLS):
         if len(found) >= LIMIT:
             break
+        before = len(found)
         try:
+            page.keyboard.press("Escape")          # dismiss login/cookie popups
+            page.mouse.move(640, 450)              # wheel only scrolls under the mouse
             page.mouse.wheel(0, 3000)
+            page.evaluate("window.scrollBy(0, document.body.scrollHeight)")
         except Exception:
             pass
         page.wait_for_timeout(1500)
         print(f"    [{label}] scroll {i + 1}/{SCROLLS}: {len(found)} items so far", file=sys.stderr)
+        stalled = stalled + 1 if len(found) == before else 0
+        if stalled >= 3:                           # page stopped loading more; move on
+            break
+
+
+def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
+               debug: bool) -> list[dict]:
+    """Open each (label, url), capture page JSON with `walker`, rank by views."""
+    found: dict = {}
+    for label, url in targets:
+        page = ctx.new_page()
+        name = f"{platform}_{label}".replace(" ", "_").replace("/", "_")
+        caps = _collect(page, walker, found, name if debug else None)
+        print(f"  [{platform}] {url}", file=sys.stderr)
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=45000)
+            page.wait_for_timeout(3000)
+            _scroll(page, found, f"{platform}:{label}")
+        except Exception as e:
+            print(f"  [{platform}] {label}: {e}", file=sys.stderr)
+        if debug:
+            _dump(page, caps, name)
+        page.close()
+        if len(found) >= LIMIT:
+            break
+    items = list(found.values())
+    items.sort(key=lambda x: (x.get("views") or 0), reverse=True)
+    return items[:LIMIT]
 
 
 def scrape_tiktok(ctx, debug: bool) -> list[dict]:
-    found: dict = {}
-    for q in TT_QUERIES:
-        page = ctx.new_page()
-        caps = _collect(page, _walk_tiktok, found, f"tiktok_{q}" if debug else None)
-        url = f"https://www.tiktok.com/search/video?q={q.replace(' ', '%20')}"
-        print(f"  [tiktok] {url}", file=sys.stderr)
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=45000)
-            page.wait_for_timeout(3000)
-            _scroll(page, found, f"tiktok:{q}")
-        except Exception as e:
-            print(f"  [tiktok] {q}: {e}", file=sys.stderr)
-        if debug:
-            _dump(page, caps, f"tiktok_{q}")
-        page.close()
-        if len(found) >= LIMIT:
-            break
-    items = list(found.values())
-    items.sort(key=lambda x: (x.get("views") or 0), reverse=True)
-    return items[:LIMIT]
+    targets = [(f"tag_{t}", f"https://www.tiktok.com/tag/{t}") for t in TT_TAGS]
+    targets += [(f"search_{q}", f"https://www.tiktok.com/search/video?q={q.replace(' ', '%20')}")
+                for q in TT_QUERIES]
+    return _visit_all(ctx, targets, _walk_tiktok, "tiktok", debug)
 
 
 def scrape_instagram(ctx, debug: bool) -> list[dict]:
-    found: dict = {}
-    for tag in IG_TAGS:
-        page = ctx.new_page()
-        caps = _collect(page, _walk_instagram, found, f"ig_{tag}" if debug else None)
-        url = f"https://www.instagram.com/explore/tags/{tag}/"
-        print(f"  [instagram] {url}", file=sys.stderr)
-        try:
-            page.goto(url, wait_until="domcontentloaded", timeout=45000)
-            page.wait_for_timeout(3000)
-            _scroll(page, found, f"ig:{tag}")
-        except Exception as e:
-            print(f"  [instagram] {tag}: {e}", file=sys.stderr)
-        if debug:
-            _dump(page, caps, f"ig_{tag}")
-        page.close()
-        if len(found) >= LIMIT:
-            break
-    items = list(found.values())
-    items.sort(key=lambda x: (x.get("views") or 0), reverse=True)
-    return items[:LIMIT]
+    targets = [(f"acct_{a}", f"https://www.instagram.com/{a}/reels/") for a in IG_ACCOUNTS]
+    targets += [(f"tag_{t}", f"https://www.instagram.com/explore/tags/{t}/") for t in IG_TAGS]
+    return _visit_all(ctx, targets, _walk_instagram, "instagram", debug)
 
 
 def _dump(page, caps, name: str):
