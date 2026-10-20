@@ -22,11 +22,21 @@ from collections import defaultdict
 BASE = {"minecraft", "mc", "mcyt", "shorts", "short", "video", "videos",
         "youtube", "yt", "reddit", "tiktok", "instagram", "reel", "reels",
         "gameplay", "gaming", "game"}
+# Engagement-bait hashtags that appear on every platform but say nothing.
+FILLER = {"fyp", "foryou", "foryoupage", "fy", "fypage", "viral", "trending",
+          "trend", "explore", "explorepage", "xyzbca", "capcut", "edit", "edits",
+          "way", "watch", "follow", "subscribe", "like", "comment", "share"}
+# Hashtag spellings of the niche itself, e.g. #minecraftmemes, #minecraftshorts.
+NICHE_PREFIXES = ("minecraft", "mcyt")
 STOP = {"the", "and", "for", "you", "your", "with", "this", "that", "but",
         "are", "was", "how", "why", "what", "when", "all", "new", "get", "got",
         "out", "not", "they", "his", "her", "its", "has", "had", "can", "will",
         "just", "like", "from", "have", "who", "one", "two", "best", "every",
         "ever", "guys", "about", "into", "made", "make", "making", "day", "part"}
+STOP |= {"too", "very", "went", "far", "much", "more", "most", "now", "off",
+         "over", "really", "still", "even", "back", "here", "there", "then",
+         "than", "them", "our", "did", "does", "don't", "can't", "it's", "i'm",
+         "you're", "omg", "lol", "bro", "guy", "time", "first", "last", "only"}
 
 PLATFORMS = ["youtube", "tiktok", "instagram", "reddit", "modrinth", "google_trends"]
 
@@ -37,12 +47,25 @@ def _text(item: dict) -> str:
 
 def _words(text: str) -> set[str]:
     toks = re.findall(r"[a-z0-9']+", text.lower())
-    return {t for t in toks if len(t) >= 3 and t not in STOP and t not in BASE}
+    return {t for t in toks
+            if len(t) >= 3 and t not in STOP and t not in BASE and t not in FILLER
+            and not t.startswith(NICHE_PREFIXES)}
 
 
 def _engagement(item: dict) -> int:
     return int(item.get("views") or item.get("score")
                or item.get("downloads") or item.get("follows") or 0)
+
+
+# Promo posts that hijack niche hashtags (common on Instagram tag pages).
+SPAM = ("website", "business", "marketing", "dm me", "dm for", "promotion",
+        "followers", "giveaway", "crypto", "forex", "link in bio", "hire")
+
+
+def _items(feed: dict, plat: str) -> list[dict]:
+    """A platform's items, minus promo spam."""
+    return [i for i in (feed.get(plat, []) or [])
+            if not any(s in _text(i).lower() for s in SPAM)]
 
 
 def _title(item: dict) -> str:
@@ -66,7 +89,7 @@ def main() -> None:
     # keyword -> {platform -> [items]}
     themes: dict[str, dict[str, list]] = defaultdict(lambda: defaultdict(list))
     for plat in PLATFORMS:
-        for item in feed.get(plat, []) or []:
+        for item in _items(feed, plat):
             for w in _words(_text(item)):
                 themes[w][plat].append(item)
 
@@ -102,7 +125,7 @@ def main() -> None:
             lines.append("")
 
     # Hottest individual items overall, any platform.
-    allitems = [(p, i) for p in PLATFORMS for i in (feed.get(p, []) or [])]
+    allitems = [(p, i) for p in PLATFORMS for i in _items(feed, p)]
     allitems.sort(key=lambda pi: _engagement(pi[1]), reverse=True)
     if allitems:
         lines.append("## Hottest individual posts right now\n")
