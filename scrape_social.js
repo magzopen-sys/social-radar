@@ -18,7 +18,7 @@ async function tiktok() {
   try {
     const TikTokScraper = require("tiktok-scraper");
     const sess = process.env.TIKTOK_SESSION;
-    const opts = { number: 40, ...(sess ? { sessionList: [`sid_tt=${sess}`] } : {}) };
+    const opts = { number: 100, ...(sess ? { sessionList: [`sid_tt=${sess}`] } : {}) };
     const res = await TikTokScraper.trend("", opts);
     const out = [];
     for (const v of (res.collector || [])) {
@@ -33,7 +33,7 @@ async function tiktok() {
       });
     }
     out.sort((a, b) => (b.views || 0) - (a.views || 0));
-    return out.slice(0, 10);
+    return out.slice(0, 50);
   } catch (e) { console.error("[tiktok]", e.message); return []; }
 }
 
@@ -47,7 +47,7 @@ async function instagram() {
     for (const acc of accounts) {
       try {
         const res = await instatouch.user(acc, {
-          count: 6, ...(sess ? { session: `sessionid=${sess}` } : {}),
+          count: 50, ...(sess ? { session: `sessionid=${sess}` } : {}),
         });
         let n = 0;
         for (const p of (res.collector || [])) {
@@ -60,11 +60,11 @@ async function instagram() {
             author: acc,
             views: p.video_view_count || p.playCount || null,
           });
-          if (++n >= 2) break;
+          if (++n >= 50) break;
         }
       } catch (e) { console.error("[ig]", acc, e.message); }
     }
-    return out.slice(0, 10);
+    return out.slice(0, 50);
   } catch (e) { console.error("[instagram]", e.message); return []; }
 }
 

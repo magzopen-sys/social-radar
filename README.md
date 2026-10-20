@@ -7,7 +7,7 @@ Odysseus Discord bot reads it and pings you on new cross-platform trends.
 
 ```
 GitHub Actions (free, clean IP)        Your PC (light)
-  scrape.py every 2h  ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
+  scrape.py hourly   ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
 ```
 
 ## One-time setup (~10 min)
@@ -37,25 +37,67 @@ GitHub Actions (free, clean IP)        Your PC (light)
    ```
    then `systemctl --user restart odysseus.service`.
 
-That's it — Google Trends works out of the box. TikTok and IG are best-effort and
-get more reliable with the optional secrets below.
+That's it — but see the Reddit setup below: Reddit now blocks anonymous requests
+from GitHub's IPs, so the two Reddit secrets are what make the feed actually fill.
+TikTok and IG are best-effort and get more reliable with the optional secrets below.
 
-## Optional secrets (make TikTok / IG solid)
+## Reddit setup (2 min — makes Reddit reliable)
 
-Set these in the repo: Settings → Secrets and variables → Actions.
+Reddit returns **403** to anonymous `.json` requests from GitHub Actions IPs, so
+the scraper now uses the official Reddit API (app-only OAuth). You need a free
+Reddit "script" app:
 
-- **`TIKTOK_MS_TOKEN`** (secret) — hugely improves TikTok reliability.
-  Get it: log into tiktok.com in a browser → DevTools → Application → Cookies →
-  copy the value of `msToken`. Paste as the secret. (It rotates every few weeks;
-  refresh when TikTok results dry up.)
-- **`IG_ACCOUNTS`** (variable, not secret) — comma-separated public handles to watch,
-  e.g. `minecraft,somemcytcreator,anotherone`. Defaults to a generic set.
-- **`IG_USERNAME` + `IG_SESSIONFILE`** (secrets) — only if IG starts requiring login.
-  Generate a session locally with `instaloader --login <user>` and paste the
-  session file contents. Skip unless anonymous scraping stops working.
+1. Go to <https://www.reddit.com/prefs/apps> → **create another app...**
+2. Pick type **script**. Name it anything (e.g. `social-radar`). For the
+   redirect URI put `http://localhost:8080` (unused, but required).
+3. After creating it you'll see:
+   - the **client id** — the string just under the app name (near "personal use script")
+   - the **secret** — labelled `secret`
+4. Add them as repo Secrets (Settings → Secrets and variables → Actions → New
+   repository secret):
+   - `REDDIT_CLIENT_ID`
+   - `REDDIT_CLIENT_SECRET`
+5. (Optional) Set a repo **Variable** `REDDIT_USER_AGENT`, e.g.
+   `social-radar/1.0 (by /u/yourname)`. There's a sensible default if you skip it.
+
+Without these secrets the scraper falls back to anonymous scraping, which will
+keep getting 403'd on CI — you'll see that clearly in the logs and in the new
+`sources` section of `feed.json`.
+
+Other tunables (optional repo Variables / env): `REDDIT_SUBS` (comma list),
+`REDDIT_MIN_SCORE` (default 100), `REDDIT_LIMIT` (default 50). To actually fill
+50 items/hour you need enough supply — keep several busy subreddits in
+`REDDIT_SUBS` and don't set `REDDIT_MIN_SCORE` too high.
+
+## YouTube setup (free, high volume — recommended)
+
+The YouTube Data API v3 gives you a free key and 10,000 quota units/day. One
+search returns up to 50 videos and costs 100 units, so hourly runs use a tiny
+fraction of the daily quota. This is the most reliable way to hit ~50/hour.
+
+1. Go to <https://console.cloud.google.com/> → create a project (any name).
+2. **APIs & Services → Library** → search **"YouTube Data API v3"** → **Enable**.
+3. **APIs & Services → Credentials → Create credentials → API key**. Copy it.
+4. Add it as a repo Secret: `YOUTUBE_API_KEY`.
+5. (Optional) repo Variable `YOUTUBE_QUERIES`, e.g.
+   `minecraft,minecraft shorts,minecraft build hacks`. Has a default.
+
+Tunables: `YOUTUBE_LIMIT` (default 50), `YOUTUBE_DAYS` (default 7, only recent videos).
+
+## TikTok + Instagram (run on your Mac, not Actions)
+
+GitHub Actions **cannot** scrape TikTok or Instagram — their datacenter IPs are
+blocked and both require a login. The old `scrape_social.js` path (tiktok-scraper
+/ instatouch) relied on libraries the platforms have since killed, so it returns
+nothing on CI. Those two platforms now run from a small local scraper on your Mac,
+using your logged-in browser and home IP, scheduled once a day. It writes
+`social.json` and pushes it; the hourly Action merges it in automatically.
+
+➡️ See **[`mac/README-mac.md`](mac/README-mac.md)** for setup (Playwright, one-time
+login, and the launchd daily schedule).
 
 ## Notes
-- **Free tier:** every 2h ≈ 360 runs/mo × ~3–8 min each — well within the free
+- **Free tier:** hourly ≈ 720 runs/mo × ~1 min each — well within the free
   2,000 min/month for private repos, and unlimited for public repos.
 - **Private repo:** raw URLs need a token. Easiest is a public repo containing
   *only* feed.json, or switch the bot to fetch via the GitHub API with a token.

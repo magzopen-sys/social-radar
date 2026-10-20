@@ -13,7 +13,7 @@ name: social-radar
 
 on:
   schedule:
-    - cron: "0 */2 * * *"   # every 2 hours
+    - cron: "0 * * * *"     # every hour
   workflow_dispatch: {}
 
 permissions:
@@ -55,7 +55,18 @@ jobs:
       - name: Scrape Reddit + Trends, merge feed (Python)
         env:
           GEO: US
-          REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts
+          REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts,Minecraftbuilds,redstone,technicalminecraft
+          # Official Reddit API (app-only OAuth) — fixes the 403s from CI IPs.
+          # Create a free "script" app at https://www.reddit.com/prefs/apps
+          # and add these as repo Secrets (Settings -> Secrets and variables -> Actions).
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          # Reddit requires a descriptive User-Agent. Optional repo Variable; has a default.
+          REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
+          # YouTube Data API v3 (free key from Google Cloud Console). See README.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          # Optional repo Variable: comma-separated search terms. Has a default.
+          YOUTUBE_QUERIES: ${{ vars.YOUTUBE_QUERIES }}
         run: python scrape.py
 
       - name: Commit feed
@@ -64,4 +75,6 @@ jobs:
           git config user.email "actions@github.com"
           git add feed.json
           git diff --quiet --staged || git commit -m "feed: $(date -u +%FT%TZ)"
+          # The Mac scraper also pushes (social.json), so rebase before pushing.
+          git pull --rebase origin "$GITHUB_REF_NAME" || true
           git push
