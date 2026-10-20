@@ -66,7 +66,8 @@ Add any of these to `../.env` (comma-separated):
 |---|---|---|
 | `TT_TAGS` | `minecraft,minecraftbuilds,minecraftmemes` | `tiktok.com/tag/<tag>` (works logged out) |
 | `TT_QUERIES` | `minecraft,minecraft build,minecraft shorts` | TikTok search (needs a TikTok login) |
-| `IG_ACCOUNTS` | `minecraft` | `instagram.com/<handle>/reels/` |
+| `IG_ACCOUNTS` | `minecraft,kingfox.yt,bweeyt,askplayz.gg` | `instagram.com/<handle>/reels/` |
+| `IG_LIMIT` | 30 per account | max Instagram posts kept |
 | `IG_TAGS` | *(none)* | Instagram hashtag pages (often show "Something went wrong", so off by default) |
 | `SCROLLS` | `8` | max scrolls per page (stops early once a page stops growing) |
 
