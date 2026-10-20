@@ -43,6 +43,7 @@ import os
 import re
 import subprocess
 import sys
+import random
 import time
 from pathlib import Path
 
@@ -76,6 +77,9 @@ TT_QUERIES = _env_list("TT_QUERIES", "minecraft,minecraft build,minecraft shorts
 # "Something went wrong" but often still return a few posts, so both are on.
 IG_ACCOUNTS = _env_list("IG_ACCOUNTS", "minecraft", "@")
 IG_TAGS = _env_list("IG_TAGS", "minecraft,minecraftbuilds,minecraftmemes", "#")
+# Seconds to wait between page loads (plus random jitter), per platform.
+TT_PAUSE = float(os.getenv("TT_PAUSE", "4"))
+IG_PAUSE = float(os.getenv("IG_PAUSE", "12"))
 
 
 # ── heuristic extractors: walk any JSON and pick out video/post objects ───────
@@ -167,7 +171,7 @@ def _collect(page, walker, found: dict, debug_name: str | None):
     return captures
 
 
-def _scroll(page, found: dict, label: str):
+def _scroll(page, found: dict, label: str, wait_ms: int = 1500):
     stalled = 0
     for i in range(SCROLLS):
         if len(found) >= LIMIT:
@@ -180,7 +184,7 @@ def _scroll(page, found: dict, label: str):
             page.evaluate("window.scrollBy(0, document.body.scrollHeight)")
         except Exception:
             pass
-        page.wait_for_timeout(1500)
+        page.wait_for_timeout(wait_ms)
         print(f"    [{label}] scroll {i + 1}/{SCROLLS}: {len(found)} items so far", file=sys.stderr)
         stalled = stalled + 1 if len(found) == before else 0
         if stalled >= 3:                           # page stopped loading more; move on
@@ -188,7 +192,7 @@ def _scroll(page, found: dict, label: str):
 
 
 def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
-               debug: bool) -> list[dict]:
+               debug: bool, pause: float = 0, scroll_wait: int = 1500) -> list[dict]:
     """Open each (label, url), capture page JSON with `walker`, rank by views."""
     found: dict = {}
     for label, url in targets:
@@ -199,7 +203,7 @@ def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=45000)
             page.wait_for_timeout(3000)
-            _scroll(page, found, f"{platform}:{label}")
+            _scroll(page, found, f"{platform}:{label}", scroll_wait)
         except Exception as e:
             print(f"  [{platform}] {label}: {e}", file=sys.stderr)
         if debug:
@@ -207,6 +211,9 @@ def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
         page.close()
         if len(found) >= LIMIT:
             break
+        if pause and (label, url) != targets[-1]:
+            # Space out page loads; rapid-fire loads trip the sites' throttles.
+            time.sleep(pause + random.uniform(0, pause / 2))
     items = list(found.values())
     items.sort(key=lambda x: (x.get("views") or 0), reverse=True)
     return items[:LIMIT]
@@ -216,13 +223,15 @@ def scrape_tiktok(ctx, debug: bool) -> list[dict]:
     targets = [(f"tag_{t}", f"https://www.tiktok.com/tag/{t}") for t in TT_TAGS]
     targets += [(f"search_{q}", f"https://www.tiktok.com/search/video?q={q.replace(' ', '%20')}")
                 for q in TT_QUERIES]
-    return _visit_all(ctx, targets, _walk_tiktok, "tiktok", debug)
+    return _visit_all(ctx, targets, _walk_tiktok, "tiktok", debug, pause=TT_PAUSE)
 
 
 def scrape_instagram(ctx, debug: bool) -> list[dict]:
     targets = [(f"acct_{a}", f"https://www.instagram.com/{a}/reels/") for a in IG_ACCOUNTS]
     targets += [(f"tag_{t}", f"https://www.instagram.com/explore/tags/{t}/") for t in IG_TAGS]
-    return _visit_all(ctx, targets, _walk_instagram, "instagram", debug)
+    # Instagram throttles fast: it loads, then flips to "Something went wrong".
+    return _visit_all(ctx, targets, _walk_instagram, "instagram", debug,
+                      pause=IG_PAUSE, scroll_wait=3000)
 
 
 def _dump(page, caps, name: str):
