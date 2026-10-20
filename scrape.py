@@ -35,6 +35,10 @@ Env:
   YOUTUBE_QUERIES       comma list of search terms (default minecraft set)
   YOUTUBE_LIMIT         max youtube items in feed (default 50)
   YOUTUBE_DAYS          only videos newer than N days (default 7)
+  TIKTOK_CLIENT_KEY     TikTok app key (official Research API; approval-gated)
+  TIKTOK_CLIENT_SECRET  TikTok app secret
+  TIKTOK_HASHTAGS       comma list of hashtags (default minecraft set)
+  TIKTOK_LIMIT          max tiktok items from the API (default 50)
 """
 
 from __future__ import annotations
@@ -206,6 +210,80 @@ def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
     return out[:int(os.getenv("REDDIT_LIMIT", "50"))]
 
 
+# ── TikTok via the official Research API (needs an approved app) ──────────────
+def scrape_tiktok_api() -> list[dict]:
+    """Query public TikToks by hashtag via the official Research API.
+
+    Only works if your TikTok developer app has Research API access (approval
+    gated). A normal app will get an auth/scope error here — the caller then
+    falls back to the Mac browser scraper's social.json.
+    """
+    ck = os.getenv("TIKTOK_CLIENT_KEY")
+    cs = os.getenv("TIKTOK_CLIENT_SECRET")
+    if not (ck and cs):
+        raise RuntimeError("TIKTOK_CLIENT_KEY/SECRET not set")
+
+    tr = requests.post(
+        "https://open.tiktokapis.com/v2/oauth/token/",
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        data={"client_key": ck, "client_secret": cs, "grant_type": "client_credentials"},
+        timeout=20,
+    )
+    tr.raise_for_status()
+    token = tr.json().get("access_token")
+    if not token:
+        raise RuntimeError("no access_token in token response")
+
+    tags = [t.strip().lstrip("#") for t in os.getenv(
+        "TIKTOK_HASHTAGS", "minecraft,minecraftbuilds").split(",") if t.strip()]
+    limit = int(os.getenv("TIKTOK_LIMIT", "50"))
+    days = int(os.getenv("TIKTOK_DAYS", "7"))
+    end = datetime.now(timezone.utc)
+    start = end - timedelta(days=days)
+
+    out: list[dict] = []
+    errors: list[str] = []
+    for tag in tags:
+        try:
+            resp = requests.post(
+                "https://open.tiktokapis.com/v2/research/video/query/"
+                "?fields=id,username,video_description,view_count,hashtag_names",
+                headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+                data=json.dumps({
+                    "query": {"and": [{"operation": "IN", "field_name": "hashtag_name",
+                                       "field_values": [tag]}]},
+                    "max_count": min(100, limit),
+                    "start_date": start.strftime("%Y%m%d"),
+                    "end_date": end.strftime("%Y%m%d"),
+                }),
+                timeout=25,
+            )
+            resp.raise_for_status()
+            for v in resp.json().get("data", {}).get("videos", []):
+                vid = str(v.get("id"))
+                out.append({
+                    "id": "tt" + vid,
+                    "title": (v.get("video_description") or "(tiktok)")[:90],
+                    "url": f"https://www.tiktok.com/@{v.get('username', '')}/video/{vid}",
+                    "author": v.get("username", ""),
+                    "views": v.get("view_count"),
+                    "tag": tag,
+                })
+        except Exception as e:
+            errors.append(f"{tag}: {e}")
+            print(f"[tiktok-api] {tag}: {e}", file=sys.stderr)
+
+    if not out and errors:
+        raise RuntimeError("Research API returned nothing (likely not approved) -> "
+                           + "; ".join(errors))
+    seen, uniq = set(), []
+    for i in out:
+        if i["id"] not in seen:
+            seen.add(i["id"]); uniq.append(i)
+    uniq.sort(key=lambda x: (x.get("views") or 0), reverse=True)
+    return uniq[:limit]
+
+
 # ── YouTube via the official Data API v3 (free key, generous quota) ───────────
 def scrape_youtube() -> list[dict]:
     key = os.getenv("YOUTUBE_API_KEY")
@@ -309,8 +387,23 @@ def main() -> None:
         except Exception as e:
             print(f"[social.json] {e}", file=sys.stderr)
 
-    tiktok = social.get("tiktok", []) or []
+    tiktok_browser = social.get("tiktok", []) or []
     instagram = social.get("instagram", []) or []
+
+    # TikTok: try the official Research API first (stable, if your app is
+    # approved); otherwise fall back to the Mac browser scraper's social.json.
+    tiktok = tiktok_browser
+    tt_note = "from Mac browser scraper" if tiktok_browser else "no items yet (run the Mac scraper)"
+    try:
+        api_tt = scrape_tiktok_api()
+        if api_tt:
+            tiktok, tt_note = api_tt, "from official TikTok Research API"
+    except Exception as e:
+        msg = str(e)[:120]
+        print(f"[tiktok] official API unavailable: {msg}", file=sys.stderr)
+        tt_note = (f"official API unavailable; using Mac browser scraper ({msg})"
+                   if tiktok_browser else
+                   f"official API unavailable ({msg}); Mac scraper has no items yet")
 
     feed = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
@@ -323,8 +416,7 @@ def main() -> None:
 
     # TikTok / IG are produced by the Node step; report their status honestly too.
     STATUS["tiktok"] = {
-        "count": len(tiktok), "ok": bool(tiktok),
-        "note": "ok" if tiktok else "no items (needs TIKTOK_SESSION; library is unmaintained)",
+        "count": len(tiktok), "ok": bool(tiktok), "note": tt_note,
     }
     STATUS["instagram"] = {
         "count": len(instagram), "ok": bool(instagram),
