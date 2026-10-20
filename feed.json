@@ -1,28 +1,7 @@
 {
-  "generated_at": "2026-10-20T06:50:26Z",
+  "generated_at": "2026-10-20T13:07:58Z",
   "tiktok": [],
   "instagram": [],
   "reddit": [],
-  "google_trends": [
-    {
-      "id": "38729c60c7dca72e",
-      "query": "baguette",
-      "value": "+750%"
-    },
-    {
-      "id": "c20de8173f521a34",
-      "query": "elgoog",
-      "value": "+140%"
-    },
-    {
-      "id": "f3af783c0cf59976",
-      "query": "minecraftle",
-      "value": "+100%"
-    },
-    {
-      "id": "80556a35e6775a3b",
-      "query": "stranger things",
-      "value": "+90%"
-    }
-  ]
+  "google_trends": []
 }
