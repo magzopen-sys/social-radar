@@ -1,0 +1,4 @@
+# Mac-side scraper deps. Install into a venv, then fetch the browser:
+#   pip install -r requirements-mac.txt
+#   python -m playwright install chromium
+playwright==1.47.0

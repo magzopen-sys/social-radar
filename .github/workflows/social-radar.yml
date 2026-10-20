@@ -75,4 +75,6 @@ jobs:
           git config user.email "actions@github.com"
           git add feed.json
           git diff --quiet --staged || git commit -m "feed: $(date -u +%FT%TZ)"
+          # The Mac scraper also pushes (social.json), so rebase before pushing.
+          git pull --rebase origin "$GITHUB_REF_NAME" || true
           git push

@@ -84,19 +84,17 @@ fraction of the daily quota. This is the most reliable way to hit ~50/hour.
 
 Tunables: `YOUTUBE_LIMIT` (default 50), `YOUTUBE_DAYS` (default 7, only recent videos).
 
-## Optional secrets (make TikTok / IG solid)
+## TikTok + Instagram (run on your Mac, not Actions)
 
-Set these in the repo: Settings → Secrets and variables → Actions.
+GitHub Actions **cannot** scrape TikTok or Instagram — their datacenter IPs are
+blocked and both require a login. The old `scrape_social.js` path (tiktok-scraper
+/ instatouch) relied on libraries the platforms have since killed, so it returns
+nothing on CI. Those two platforms now run from a small local scraper on your Mac,
+using your logged-in browser and home IP, scheduled once a day. It writes
+`social.json` and pushes it; the hourly Action merges it in automatically.
 
-- **`TIKTOK_MS_TOKEN`** (secret) — hugely improves TikTok reliability.
-  Get it: log into tiktok.com in a browser → DevTools → Application → Cookies →
-  copy the value of `msToken`. Paste as the secret. (It rotates every few weeks;
-  refresh when TikTok results dry up.)
-- **`IG_ACCOUNTS`** (variable, not secret) — comma-separated public handles to watch,
-  e.g. `minecraft,somemcytcreator,anotherone`. Defaults to a generic set.
-- **`IG_USERNAME` + `IG_SESSIONFILE`** (secrets) — only if IG starts requiring login.
-  Generate a session locally with `instaloader --login <user>` and paste the
-  session file contents. Skip unless anonymous scraping stops working.
+➡️ See **[`mac/README-mac.md`](mac/README-mac.md)** for setup (Playwright, one-time
+login, and the launchd daily schedule).
 
 ## Notes
 - **Free tier:** hourly ≈ 720 runs/mo × ~1 min each — well within the free

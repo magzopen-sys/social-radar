@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  launchd agent to run the Mac scraper once a day (09:00).
+  EDIT the three /ABSOLUTE/PATH/TO paths to match where you cloned the repo,
+  then install:
+
+    cp mac/com.magz.social-radar.plist ~/Library/LaunchAgents/
+    launchctl load  ~/Library/LaunchAgents/com.magz.social-radar.plist
+    launchctl start com.magz.social-radar      # test it immediately
+
+  To stop/remove:
+    launchctl unload ~/Library/LaunchAgents/com.magz.social-radar.plist
+
+  Note: the scraper opens a real browser window, so it runs while you're logged
+  into the Mac. If a scheduled time passes while you're logged out, macOS runs it
+  at your next login.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.magz.social-radar</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/ABSOLUTE/PATH/TO/social-radar/mac/run.sh</string>
+  </array>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/ABSOLUTE/PATH/TO/social-radar/mac/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/ABSOLUTE/PATH/TO/social-radar/mac/launchd.err.log</string>
+</dict>
+</plist>
