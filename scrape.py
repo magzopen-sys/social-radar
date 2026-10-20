@@ -46,7 +46,9 @@ Env:
 
 from __future__ import annotations
 
+import contextlib
 import hashlib
+import io
 import json
 import os
 import sys
@@ -202,7 +204,14 @@ def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
     errors: list[str] = []
     for sub in subs:
         try:
-            for p in miner.fetch_subreddit_posts(sub, limit=50, category="hot"):
+            # YARS prints HTTP failures instead of raising; capture and surface them.
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                posts = miner.fetch_subreddit_posts(sub, limit=50, category="hot")
+            printed = buf.getvalue().strip()
+            if not posts and "Failed" in printed:
+                raise RuntimeError(printed)
+            for p in posts:
                 score = p.get("score", 0) or 0
                 if score < min_score:
                     continue

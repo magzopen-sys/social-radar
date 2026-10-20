@@ -60,6 +60,9 @@ SOCIAL_JSON = ROOT / "social.json"
 LIMIT = int(os.getenv("LIMIT", "50"))
 SCROLLS = int(os.getenv("SCROLLS", "8"))
 HEADLESS = os.getenv("HEADLESS", "") not in ("", "0", "false", "False")
+# Real Google Chrome passes TikTok/IG login checks far better than Playwright's
+# bundled Chromium. Set BROWSER_CHANNEL="" to force the bundled one.
+CHANNEL = os.getenv("BROWSER_CHANNEL", "chrome")
 
 TT_QUERIES = [q.strip() for q in os.getenv(
     "TT_QUERIES", "minecraft,minecraft build,minecraft shorts").split(",") if q.strip()]
@@ -226,13 +229,37 @@ def _dump(page, caps, name: str):
         pass
 
 
+# ── browser launch ─────────────────────────────────────────────────────────────
+def _launch(pw, headless: bool):
+    """Open the persistent profile in a browser that sites don't flag as a bot.
+
+    Drops Playwright's --enable-automation flag and the AutomationControlled
+    blink feature (both make TikTok/IG refuse logins), and prefers real Chrome.
+    """
+    kwargs = dict(
+        headless=headless,
+        no_viewport=True,
+        ignore_default_args=["--enable-automation"],
+        args=["--disable-blink-features=AutomationControlled"],
+    )
+    try:
+        ctx = pw.chromium.launch_persistent_context(
+            str(PROFILE), channel=CHANNEL or None, **kwargs)
+    except Exception as e:
+        print(f"Couldn't start '{CHANNEL}' ({str(e)[:120]}); "
+              "using Playwright's bundled Chromium instead.", file=sys.stderr)
+        ctx = pw.chromium.launch_persistent_context(str(PROFILE), **kwargs)
+    ctx.add_init_script(
+        "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    return ctx
+
+
 # ── modes ──────────────────────────────────────────────────────────────────────
 def do_login():
     print("Opening a browser. Log into TikTok and Instagram in the tabs, then "
           "come back here and press Enter.", file=sys.stderr)
     with sync_playwright() as pw:
-        ctx = pw.chromium.launch_persistent_context(
-            str(PROFILE), headless=False, viewport={"width": 1280, "height": 900})
+        ctx = _launch(pw, headless=False)
         ctx.new_page().goto("https://www.tiktok.com/login")
         ctx.new_page().goto("https://www.instagram.com/accounts/login/")
         input("Press Enter when you have logged into BOTH...")
@@ -243,8 +270,7 @@ def do_login():
 
 def do_scrape(debug: bool) -> dict:
     with sync_playwright() as pw:
-        ctx = pw.chromium.launch_persistent_context(
-            str(PROFILE), headless=HEADLESS, viewport={"width": 1280, "height": 900})
+        ctx = _launch(pw, headless=HEADLESS)
         try:
             tt = scrape_tiktok(ctx, debug)
             ig = scrape_instagram(ctx, debug)
