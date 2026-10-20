@@ -69,6 +69,21 @@ Other tunables (optional repo Variables / env): `REDDIT_SUBS` (comma list),
 50 items/hour you need enough supply — keep several busy subreddits in
 `REDDIT_SUBS` and don't set `REDDIT_MIN_SCORE` too high.
 
+## YouTube setup (free, high volume — recommended)
+
+The YouTube Data API v3 gives you a free key and 10,000 quota units/day. One
+search returns up to 50 videos and costs 100 units, so hourly runs use a tiny
+fraction of the daily quota. This is the most reliable way to hit ~50/hour.
+
+1. Go to <https://console.cloud.google.com/> → create a project (any name).
+2. **APIs & Services → Library** → search **"YouTube Data API v3"** → **Enable**.
+3. **APIs & Services → Credentials → Create credentials → API key**. Copy it.
+4. Add it as a repo Secret: `YOUTUBE_API_KEY`.
+5. (Optional) repo Variable `YOUTUBE_QUERIES`, e.g.
+   `minecraft,minecraft shorts,minecraft build hacks`. Has a default.
+
+Tunables: `YOUTUBE_LIMIT` (default 50), `YOUTUBE_DAYS` (default 7, only recent videos).
+
 ## Optional secrets (make TikTok / IG solid)
 
 Set these in the repo: Settings → Secrets and variables → Actions.

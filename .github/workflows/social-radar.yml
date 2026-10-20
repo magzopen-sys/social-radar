@@ -63,6 +63,10 @@ jobs:
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           # Reddit requires a descriptive User-Agent. Optional repo Variable; has a default.
           REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
+          # YouTube Data API v3 (free key from Google Cloud Console). See README.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          # Optional repo Variable: comma-separated search terms. Has a default.
+          YOUTUBE_QUERIES: ${{ vars.YOUTUBE_QUERIES }}
         run: python scrape.py
 
       - name: Commit feed

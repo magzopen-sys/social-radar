@@ -31,6 +31,10 @@ Env:
   REDDIT_USER_AGENT     descriptive UA Reddit requires   (has a default)
   REDDIT_MIN_SCORE      minimum post score to keep (default 100)
   REDDIT_LIMIT          max reddit items in feed (default 50)
+  YOUTUBE_API_KEY       YouTube Data API v3 key (free; Google Cloud Console)
+  YOUTUBE_QUERIES       comma list of search terms (default minecraft set)
+  YOUTUBE_LIMIT         max youtube items in feed (default 50)
+  YOUTUBE_DAYS          only videos newer than N days (default 7)
 """
 
 from __future__ import annotations
@@ -41,7 +45,7 @@ import os
 import sys
 import time
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import requests
 
@@ -105,7 +109,7 @@ def _get_with_retry(url: str, headers: dict, params: dict, attempts: int = 4):
         last = resp
         if resp.status_code == 429 or resp.status_code >= 500:
             wait = 2 ** i
-            print(f"[reddit] HTTP {resp.status_code} on {url} — retry in {wait}s",
+            print(f"[http] HTTP {resp.status_code} on {url} — retry in {wait}s",
                   file=sys.stderr)
             time.sleep(wait)
             continue
@@ -183,6 +187,62 @@ def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
     return out[:int(os.getenv("REDDIT_LIMIT", "50"))]
 
 
+# ── YouTube via the official Data API v3 (free key, generous quota) ───────────
+def scrape_youtube() -> list[dict]:
+    key = os.getenv("YOUTUBE_API_KEY")
+    if not key:
+        raise RuntimeError(
+            "YOUTUBE_API_KEY not set — create a free key in Google Cloud Console "
+            "(enable 'YouTube Data API v3'). See README.")
+
+    queries = [q.strip() for q in os.getenv(
+        "YOUTUBE_QUERIES", "minecraft,minecraft shorts,minecraft build hacks").split(",") if q.strip()]
+    limit = int(os.getenv("YOUTUBE_LIMIT", "50"))
+    days = int(os.getenv("YOUTUBE_DAYS", "7"))
+    after = (datetime.now(timezone.utc) - timedelta(days=days)) \
+        .isoformat(timespec="seconds").replace("+00:00", "Z")
+    per = min(50, max(1, (limit // max(1, len(queries))) + 5))  # search.list caps at 50
+
+    out: list[dict] = []
+    errors: list[str] = []
+    for q in queries:
+        try:
+            # search.list costs 100 quota units and returns up to 50 items.
+            resp = _get_with_retry(
+                "https://www.googleapis.com/youtube/v3/search",
+                headers={},
+                params={
+                    "key": key, "q": q, "part": "snippet", "type": "video",
+                    "order": "viewCount", "maxResults": per,
+                    "publishedAfter": after, "relevanceLanguage": "en",
+                },
+            )
+            for it in resp.json().get("items", []):
+                vid = (it.get("id") or {}).get("videoId")
+                sn = it.get("snippet") or {}
+                if not vid:
+                    continue
+                out.append({
+                    "id": _sid("yt", vid),
+                    "title": (sn.get("title") or "")[:90],
+                    "url": f"https://www.youtube.com/watch?v={vid}",
+                    "channel": sn.get("channelTitle", ""),
+                    "published": sn.get("publishedAt", ""),
+                    "query": q,
+                })
+        except Exception as e:
+            errors.append(f"{q}: {e}")
+            print(f"[youtube] {q}: {e}", file=sys.stderr)
+
+    seen, uniq = set(), []
+    for i in out:
+        if i["id"] not in seen:
+            seen.add(i["id"]); uniq.append(i)
+    if not uniq and errors:
+        raise RuntimeError("all queries failed -> " + "; ".join(errors))
+    return uniq[:limit]
+
+
 # ── Google Trends via pytrends ────────────────────────────────────────────────
 def scrape_google_trends() -> list[dict]:
     from pytrends.request import TrendReq
@@ -238,6 +298,7 @@ def main() -> None:
         "tiktok":        tiktok,
         "instagram":     instagram,
         "reddit":        safe("reddit", scrape_reddit),
+        "youtube":       safe("youtube", scrape_youtube),
         "google_trends": safe("google_trends", scrape_google_trends),
     }
 
@@ -255,9 +316,11 @@ def main() -> None:
     with open("feed.json", "w") as f:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
-    total = len(tiktok) + len(instagram) + len(feed["reddit"]) + len(feed["google_trends"])
+    total = (len(tiktok) + len(instagram) + len(feed["reddit"])
+             + len(feed["youtube"]) + len(feed["google_trends"]))
     print(f"feed.json: tiktok={len(tiktok)} instagram={len(instagram)} "
-          f"reddit={len(feed['reddit'])} gtrends={len(feed['google_trends'])} total={total}")
+          f"reddit={len(feed['reddit'])} youtube={len(feed['youtube'])} "
+          f"gtrends={len(feed['google_trends'])} total={total}")
     for name, st in STATUS.items():
         flag = "OK " if st["ok"] else "ERR"
         print(f"  [{flag}] {name}: {st['count']} — {st['note']}")
