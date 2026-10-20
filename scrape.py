@@ -39,6 +39,9 @@ Env:
   TIKTOK_CLIENT_SECRET  TikTok app secret
   TIKTOK_HASHTAGS       comma list of hashtags (default minecraft set)
   TIKTOK_LIMIT          max tiktok items from the API (default 50)
+  MODRINTH_TOKEN        optional Modrinth token (reads are free without it)
+  MODRINTH_LIMIT        max modrinth items (default 50)
+  MODRINTH_QUERY        optional search text (default: all mods)
 """
 
 from __future__ import annotations
@@ -340,6 +343,52 @@ def scrape_youtube() -> list[dict]:
     return uniq[:limit]
 
 
+# ── Modrinth (Minecraft mods) — free public API, no auth needed for reads ─────
+def scrape_modrinth() -> list[dict]:
+    ua = os.getenv("MODRINTH_USER_AGENT",
+                   "social-radar/1.0 (github.com/magzopen-sys/social-radar)")
+    limit = int(os.getenv("MODRINTH_LIMIT", "50"))
+    query = os.getenv("MODRINTH_QUERY", "")
+    headers = {"User-Agent": ua}
+    tok = os.getenv("MODRINTH_TOKEN")          # optional: only raises rate limits
+    if tok:
+        headers["Authorization"] = tok
+    out: list[dict] = []
+    seen: set[str] = set()
+    errors: list[str] = []
+    # "follows" = what's trending; "updated" = freshly active projects.
+    for index in ("follows", "updated"):
+        try:
+            resp = _get_with_retry(
+                "https://api.modrinth.com/v2/search",
+                headers=headers,
+                params={"query": query, "index": index,
+                        "facets": json.dumps([["project_type:mod"]]),
+                        "limit": min(100, limit)},
+            )
+            for h in resp.json().get("hits", []):
+                slug = h.get("slug") or h.get("project_id")
+                if not slug or slug in seen:
+                    continue
+                seen.add(slug)
+                out.append({
+                    "id": _sid("mr", str(slug)),
+                    "title": (h.get("title") or "")[:90],
+                    "url": f"https://modrinth.com/mod/{slug}",
+                    "downloads": h.get("downloads"),
+                    "follows": h.get("follows"),
+                    "author": h.get("author", ""),
+                    "index": index,
+                })
+        except Exception as e:
+            errors.append(f"{index}: {e}")
+            print(f"[modrinth] {index}: {e}", file=sys.stderr)
+    if not out and errors:
+        raise RuntimeError("Modrinth search failed -> " + "; ".join(errors))
+    out.sort(key=lambda x: (x.get("downloads") or 0), reverse=True)
+    return out[:limit]
+
+
 # ── Google Trends via pytrends ────────────────────────────────────────────────
 def scrape_google_trends() -> list[dict]:
     from pytrends.request import TrendReq
@@ -411,6 +460,7 @@ def main() -> None:
         "instagram":     instagram,
         "reddit":        safe("reddit", scrape_reddit),
         "youtube":       safe("youtube", scrape_youtube),
+        "modrinth":      safe("modrinth", scrape_modrinth),
         "google_trends": safe("google_trends", scrape_google_trends),
     }
 
@@ -428,10 +478,10 @@ def main() -> None:
         json.dump(feed, f, indent=2, ensure_ascii=False)
 
     total = (len(tiktok) + len(instagram) + len(feed["reddit"])
-             + len(feed["youtube"]) + len(feed["google_trends"]))
+             + len(feed["youtube"]) + len(feed["modrinth"]) + len(feed["google_trends"]))
     print(f"feed.json: tiktok={len(tiktok)} instagram={len(instagram)} "
           f"reddit={len(feed['reddit'])} youtube={len(feed['youtube'])} "
-          f"gtrends={len(feed['google_trends'])} total={total}")
+          f"modrinth={len(feed['modrinth'])} gtrends={len(feed['google_trends'])} total={total}")
     for name, st in STATUS.items():
         flag = "OK " if st["ok"] else "ERR"
         print(f"  [{flag}] {name}: {st['count']} — {st['note']}")

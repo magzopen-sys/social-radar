@@ -28,7 +28,7 @@ STOP = {"the", "and", "for", "you", "your", "with", "this", "that", "but",
         "just", "like", "from", "have", "who", "one", "two", "best", "every",
         "ever", "guys", "about", "into", "made", "make", "making", "day", "part"}
 
-PLATFORMS = ["youtube", "tiktok", "instagram", "reddit", "google_trends"]
+PLATFORMS = ["youtube", "tiktok", "instagram", "reddit", "modrinth", "google_trends"]
 
 
 def _text(item: dict) -> str:
@@ -41,7 +41,8 @@ def _words(text: str) -> set[str]:
 
 
 def _engagement(item: dict) -> int:
-    return int(item.get("views") or item.get("score") or 0)
+    return int(item.get("views") or item.get("score")
+               or item.get("downloads") or item.get("follows") or 0)
 
 
 def _title(item: dict) -> str:
