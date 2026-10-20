@@ -105,6 +105,13 @@ using your logged-in browser and home IP, scheduled once a day. It writes
 ➡️ See **[`mac/README-mac.md`](mac/README-mac.md)** for setup (Playwright, one-time
 login, and the launchd daily schedule).
 
+## Content ideas (`ideas.py`)
+
+`python ideas.py` reads `feed.json` and writes `ideas.md`: themes trending across
+**multiple** platforms (the strongest signal), each with the hottest real example
+to riff on, plus the top individual posts. No API key — it's keyword/co-occurrence
+analysis. The Mac run regenerates and pushes `ideas.md` automatically.
+
 ## Notes
 - **Free tier:** hourly ≈ 720 runs/mo × ~1 min each — well within the free
   2,000 min/month for private repos, and unlimited for public repos.
