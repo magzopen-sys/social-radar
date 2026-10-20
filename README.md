@@ -7,7 +7,7 @@ Odysseus Discord bot reads it and pings you on new cross-platform trends.
 
 ```
 GitHub Actions (free, clean IP)        Your PC (light)
-  scrape.py every 2h  ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
+  scrape.py hourly   ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
 ```
 
 ## One-time setup (~10 min)
@@ -65,7 +65,9 @@ keep getting 403'd on CI — you'll see that clearly in the logs and in the new
 `sources` section of `feed.json`.
 
 Other tunables (optional repo Variables / env): `REDDIT_SUBS` (comma list),
-`REDDIT_MIN_SCORE` (default 500), `REDDIT_LIMIT` (default 10).
+`REDDIT_MIN_SCORE` (default 100), `REDDIT_LIMIT` (default 50). To actually fill
+50 items/hour you need enough supply — keep several busy subreddits in
+`REDDIT_SUBS` and don't set `REDDIT_MIN_SCORE` too high.
 
 ## Optional secrets (make TikTok / IG solid)
 
@@ -82,7 +84,7 @@ Set these in the repo: Settings → Secrets and variables → Actions.
   session file contents. Skip unless anonymous scraping stops working.
 
 ## Notes
-- **Free tier:** every 2h ≈ 360 runs/mo × ~3–8 min each — well within the free
+- **Free tier:** hourly ≈ 720 runs/mo × ~1 min each — well within the free
   2,000 min/month for private repos, and unlimited for public repos.
 - **Private repo:** raw URLs need a token. Easiest is a public repo containing
   *only* feed.json, or switch the bot to fetch via the GitHub API with a token.

@@ -25,12 +25,12 @@ Feed shape:
 
 Env:
   GEO                   default US
-  REDDIT_SUBS           comma list (default Minecraft,MinecraftMemes,youtubeshorts)
+  REDDIT_SUBS           comma list (default is a Minecraft-niche set)
   REDDIT_CLIENT_ID      Reddit "script" app client id   (recommended)
   REDDIT_CLIENT_SECRET  Reddit "script" app secret      (recommended)
   REDDIT_USER_AGENT     descriptive UA Reddit requires   (has a default)
-  REDDIT_MIN_SCORE      minimum post score to keep (default 500)
-  REDDIT_LIMIT          max reddit items in feed (default 10)
+  REDDIT_MIN_SCORE      minimum post score to keep (default 100)
+  REDDIT_LIMIT          max reddit items in feed (default 50)
 """
 
 from __future__ import annotations
@@ -61,14 +61,16 @@ def _sid(*parts: str) -> str:
 
 def _subs() -> list[str]:
     return [s.strip() for s in os.getenv(
-        "REDDIT_SUBS", "Minecraft,MinecraftMemes,youtubeshorts").split(",") if s.strip()]
+        "REDDIT_SUBS",
+        "Minecraft,MinecraftMemes,youtubeshorts,Minecraftbuilds,redstone,technicalminecraft",
+    ).split(",") if s.strip()]
 
 
 # ── Reddit ──────────────────────────────────────────────────────────────────
 def scrape_reddit() -> list[dict]:
     """Official API when creds are present (reliable), anonymous .json otherwise."""
     subs = _subs()
-    min_score = int(os.getenv("REDDIT_MIN_SCORE", "500"))
+    min_score = int(os.getenv("REDDIT_MIN_SCORE", "100"))
     cid = os.getenv("REDDIT_CLIENT_ID")
     secret = os.getenv("REDDIT_CLIENT_SECRET")
 
@@ -123,7 +125,7 @@ def _reddit_api(cid: str, secret: str, subs: list[str], min_score: int) -> list[
             resp = _get_with_retry(
                 f"https://oauth.reddit.com/r/{sub}/hot",
                 headers=headers,
-                params={"limit": 25, "raw_json": 1},
+                params={"limit": 100, "raw_json": 1},
             )
             for ch in resp.json().get("data", {}).get("children", []):
                 p = ch.get("data", {})
@@ -147,7 +149,7 @@ def _reddit_api(cid: str, secret: str, subs: list[str], min_score: int) -> list[
         raise RuntimeError("all subreddits failed via API -> " + "; ".join(errors))
 
     out.sort(key=lambda x: x["score"], reverse=True)
-    return out[:int(os.getenv("REDDIT_LIMIT", "10"))]
+    return out[:int(os.getenv("REDDIT_LIMIT", "50"))]
 
 
 def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
@@ -160,7 +162,7 @@ def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
     errors: list[str] = []
     for sub in subs:
         try:
-            for p in miner.fetch_subreddit_posts(sub, limit=12, category="hot"):
+            for p in miner.fetch_subreddit_posts(sub, limit=50, category="hot"):
                 score = p.get("score", 0) or 0
                 if score < min_score:
                     continue
@@ -178,7 +180,7 @@ def _reddit_anon(subs: list[str], min_score: int) -> list[dict]:
     if not out and errors:
         raise RuntimeError("all subreddits failed (anonymous) -> " + "; ".join(errors))
     out.sort(key=lambda x: x["score"], reverse=True)
-    return out[:int(os.getenv("REDDIT_LIMIT", "10"))]
+    return out[:int(os.getenv("REDDIT_LIMIT", "50"))]
 
 
 # ── Google Trends via pytrends ────────────────────────────────────────────────
@@ -192,7 +194,7 @@ def scrape_google_trends() -> list[dict]:
             rising = (p.related_queries().get(seed) or {}).get("rising")
             if rising is None:
                 continue
-            for _, row in rising.head(10).iterrows():
+            for _, row in rising.head(50).iterrows():
                 q = str(row["query"])
                 out.append({"id": _sid("gt", q), "query": q, "value": f"+{row['value']}%"})
         except Exception as e:
@@ -201,7 +203,7 @@ def scrape_google_trends() -> list[dict]:
     for i in out:
         if i["id"] not in seen:
             seen.add(i["id"]); uniq.append(i)
-    return uniq[:12]
+    return uniq[:50]
 
 
 def safe(name: str, fn) -> list[dict]:

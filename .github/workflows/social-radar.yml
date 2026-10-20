@@ -13,7 +13,7 @@ name: social-radar
 
 on:
   schedule:
-    - cron: "0 */2 * * *"   # every 2 hours
+    - cron: "0 * * * *"     # every hour
   workflow_dispatch: {}
 
 permissions:
@@ -55,7 +55,7 @@ jobs:
       - name: Scrape Reddit + Trends, merge feed (Python)
         env:
           GEO: US
-          REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts
+          REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts,Minecraftbuilds,redstone,technicalminecraft
           # Official Reddit API (app-only OAuth) — fixes the 403s from CI IPs.
           # Create a free "script" app at https://www.reddit.com/prefs/apps
           # and add these as repo Secrets (Settings -> Secrets and variables -> Actions).
