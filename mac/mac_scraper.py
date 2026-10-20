@@ -26,9 +26,11 @@ Daily run:
 
 Config (env):
     TT_QUERIES   comma list for TikTok search (default minecraft set)
-    IG_ACCOUNTS  comma list of Instagram handles whose Reels to read (default minecraft)
+    IG_ACCOUNTS  comma list of Instagram handles whose Reels to read
+                 (default minecraft,kingfox.yt,bweeyt,askplayz.gg)
     IG_TAGS      comma list of Instagram hashtags (default none; those pages often error)
-    LIMIT        max items per platform (default 50)
+    LIMIT        max TikTok items (default 50)
+    IG_LIMIT     max Instagram items (default 30 per account/tag)
     HEADLESS=1   run with no visible window (more bot-detectable; default off)
     SCROLLS      scroll passes per page (default 8)
 
@@ -60,6 +62,21 @@ PROFILE = HERE / ".mac-profile"
 DEBUG_DIR = HERE / "debug"
 SOCIAL_JSON = ROOT / "social.json"
 
+
+def _load_dotenv(path: Path) -> None:
+    """Read settings like IG_ACCOUNTS from the repo's .env (real env vars win)."""
+    try:
+        for line in path.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    except FileNotFoundError:
+        pass
+
+
+_load_dotenv(ROOT / ".env")
+
 LIMIT = int(os.getenv("LIMIT", "50"))
 SCROLLS = int(os.getenv("SCROLLS", "8"))
 HEADLESS = os.getenv("HEADLESS", "") not in ("", "0", "false", "False")
@@ -77,8 +94,11 @@ TT_QUERIES = _env_list("TT_QUERIES", "minecraft,minecraft build,minecraft shorts
 # Instagram account Reels tabs load reliably. Its web hashtag pages show
 # "Something went wrong" and added ~1 post each in real runs, so they're off by
 # default; set IG_TAGS to turn them back on.
-IG_ACCOUNTS = _env_list("IG_ACCOUNTS", "minecraft", "@")
+IG_ACCOUNTS = _env_list("IG_ACCOUNTS", "minecraft,kingfox.yt,bweeyt,askplayz.gg", "@")
 IG_TAGS = _env_list("IG_TAGS", "", "#")
+# Room for ~30 posts per Instagram page, so adding creators never gets cut off
+# by the cap before their page is even opened.
+IG_LIMIT = int(os.getenv("IG_LIMIT", str(30 * max(1, len(IG_ACCOUNTS) + len(IG_TAGS)))))
 # Seconds to wait between page loads (plus random jitter), per platform.
 TT_PAUSE = float(os.getenv("TT_PAUSE", "4"))
 IG_PAUSE = float(os.getenv("IG_PAUSE", "12"))
@@ -173,10 +193,10 @@ def _collect(page, walker, found: dict, debug_name: str | None):
     return captures
 
 
-def _scroll(page, found: dict, label: str, wait_ms: int = 1500):
+def _scroll(page, found: dict, label: str, wait_ms: int = 1500, limit: int = LIMIT):
     stalled = 0
     for i in range(SCROLLS):
-        if len(found) >= LIMIT:
+        if len(found) >= limit:
             break
         before = len(found)
         try:
@@ -194,7 +214,8 @@ def _scroll(page, found: dict, label: str, wait_ms: int = 1500):
 
 
 def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
-               debug: bool, pause: float = 0, scroll_wait: int = 1500) -> list[dict]:
+               debug: bool, pause: float = 0, scroll_wait: int = 1500,
+               limit: int = LIMIT) -> list[dict]:
     """Open each (label, url), capture page JSON with `walker`, rank by views."""
     found: dict = {}
     for label, url in targets:
@@ -205,20 +226,20 @@ def _visit_all(ctx, targets: list[tuple[str, str]], walker, platform: str,
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=45000)
             page.wait_for_timeout(3000)
-            _scroll(page, found, f"{platform}:{label}", scroll_wait)
+            _scroll(page, found, f"{platform}:{label}", scroll_wait, limit)
         except Exception as e:
             print(f"  [{platform}] {label}: {e}", file=sys.stderr)
         if debug:
             _dump(page, caps, name)
         page.close()
-        if len(found) >= LIMIT:
+        if len(found) >= limit:
             break
         if pause and (label, url) != targets[-1]:
             # Space out page loads; rapid-fire loads trip the sites' throttles.
             time.sleep(pause + random.uniform(0, pause / 2))
     items = list(found.values())
     items.sort(key=lambda x: (x.get("views") or 0), reverse=True)
-    return items[:LIMIT]
+    return items[:limit]
 
 
 def scrape_tiktok(ctx, debug: bool) -> list[dict]:
@@ -233,7 +254,7 @@ def scrape_instagram(ctx, debug: bool) -> list[dict]:
     targets += [(f"tag_{t}", f"https://www.instagram.com/explore/tags/{t}/") for t in IG_TAGS]
     # Instagram throttles fast: it loads, then flips to "Something went wrong".
     return _visit_all(ctx, targets, _walk_instagram, "instagram", debug,
-                      pause=IG_PAUSE, scroll_wait=3000)
+                      pause=IG_PAUSE, scroll_wait=3000, limit=IG_LIMIT)
 
 
 def _dump(page, caps, name: str):
