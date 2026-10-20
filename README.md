@@ -10,6 +10,15 @@ GitHub Actions (free, clean IP)        Your PC (light)
   scrape.py hourly   ──> feed.json ──> bot reads SOCIAL_FEED_URL ──> #cross-platform ping
 ```
 
+> **Two ways to run it:**
+> - **All on your Mac (recommended, keys stay local):** everything runs from a
+>   git-ignored `.env` (or the macOS Keychain) on your machine and pushes
+>   `feed.json`. No GitHub secrets. See **[`mac/README-mac.md`](mac/README-mac.md)**.
+> - **Cloud (GitHub Actions):** Reddit + YouTube run hourly in the cloud using
+>   repo secrets; TikTok/IG still need the Mac. The scheduled cloud run is
+>   currently disabled (see `.github/workflows/social-radar.yml`) so it can't
+>   overwrite the Mac's feed — re-enable it only after adding the secrets.
+
 ## One-time setup (~10 min)
 
 1. **Create a new GitHub repo** (e.g. `magz-social-radar`). Public is simplest

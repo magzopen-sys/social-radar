@@ -12,8 +12,13 @@ name: social-radar
 #   IG_ACCOUNTS     = comma-separated IG handles (default: minecraft)
 
 on:
-  schedule:
-    - cron: "0 * * * *"     # every hour
+  # Data now runs LOCALLY on the Mac: keys live in a git-ignored .env there, and
+  # mac/run.sh builds and pushes feed.json directly. The scheduled cloud run is
+  # disabled so it can't overwrite the Mac's feed.json with empty results (the
+  # cloud runner has no keys). Re-enable this schedule only if you later move the
+  # keys into GitHub Actions secrets.
+  # schedule:
+  #   - cron: "0 * * * *"   # every hour
   workflow_dispatch: {}
 
 permissions:
