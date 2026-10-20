@@ -56,6 +56,13 @@ jobs:
         env:
           GEO: US
           REDDIT_SUBS: Minecraft,MinecraftMemes,youtubeshorts
+          # Official Reddit API (app-only OAuth) — fixes the 403s from CI IPs.
+          # Create a free "script" app at https://www.reddit.com/prefs/apps
+          # and add these as repo Secrets (Settings -> Secrets and variables -> Actions).
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          # Reddit requires a descriptive User-Agent. Optional repo Variable; has a default.
+          REDDIT_USER_AGENT: ${{ vars.REDDIT_USER_AGENT }}
         run: python scrape.py
 
       - name: Commit feed

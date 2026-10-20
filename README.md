@@ -37,8 +37,35 @@ GitHub Actions (free, clean IP)        Your PC (light)
    ```
    then `systemctl --user restart odysseus.service`.
 
-That's it — Google Trends works out of the box. TikTok and IG are best-effort and
-get more reliable with the optional secrets below.
+That's it — but see the Reddit setup below: Reddit now blocks anonymous requests
+from GitHub's IPs, so the two Reddit secrets are what make the feed actually fill.
+TikTok and IG are best-effort and get more reliable with the optional secrets below.
+
+## Reddit setup (2 min — makes Reddit reliable)
+
+Reddit returns **403** to anonymous `.json` requests from GitHub Actions IPs, so
+the scraper now uses the official Reddit API (app-only OAuth). You need a free
+Reddit "script" app:
+
+1. Go to <https://www.reddit.com/prefs/apps> → **create another app...**
+2. Pick type **script**. Name it anything (e.g. `social-radar`). For the
+   redirect URI put `http://localhost:8080` (unused, but required).
+3. After creating it you'll see:
+   - the **client id** — the string just under the app name (near "personal use script")
+   - the **secret** — labelled `secret`
+4. Add them as repo Secrets (Settings → Secrets and variables → Actions → New
+   repository secret):
+   - `REDDIT_CLIENT_ID`
+   - `REDDIT_CLIENT_SECRET`
+5. (Optional) Set a repo **Variable** `REDDIT_USER_AGENT`, e.g.
+   `social-radar/1.0 (by /u/yourname)`. There's a sensible default if you skip it.
+
+Without these secrets the scraper falls back to anonymous scraping, which will
+keep getting 403'd on CI — you'll see that clearly in the logs and in the new
+`sources` section of `feed.json`.
+
+Other tunables (optional repo Variables / env): `REDDIT_SUBS` (comma list),
+`REDDIT_MIN_SCORE` (default 500), `REDDIT_LIMIT` (default 10).
 
 ## Optional secrets (make TikTok / IG solid)
 
