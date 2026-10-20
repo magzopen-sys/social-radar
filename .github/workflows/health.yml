@@ -1,0 +1,43 @@
+name: radar-health
+
+# Daily auto-maintainer: checks feed.json and opens ONE GitHub issue if the
+# radar has regressed (stale feed, or a configured Reddit/YouTube source failing).
+# Runs in the repo with native access — no keys or connectors needed.
+
+on:
+  schedule:
+    - cron: "17 14 * * *"   # daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: radar-health
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - id: check
+        run: python healthcheck.py
+
+      - name: Open issue on regression
+        if: steps.check.outputs.status == 'regression'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          open_count=$(gh issue list --state open --search "Radar health: in:title" --json number --jq 'length')
+          if [ "$open_count" = "0" ]; then
+            gh issue create --title "Radar health: $(date -u +%F)" --body-file health_report.md
+          else
+            echo "An open 'Radar health:' issue already exists; not duplicating."
+          fi

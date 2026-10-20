@@ -28,9 +28,10 @@ fi
 
 python mac/mac_scraper.py >> "$LOG" 2>&1   # TikTok + IG -> social.json (no push)
 python scrape.py          >> "$LOG" 2>&1   # merge everything -> feed.json
+python ideas.py           >> "$LOG" 2>&1   # cross-platform content ideas -> ideas.md
 
-# Only ever stage these two files — never a blanket 'git add .'
-git add feed.json social.json 2>/dev/null
+# Only ever stage these generated files — never a blanket 'git add .'
+git add feed.json social.json ideas.md 2>/dev/null
 if git diff --quiet --staged; then
   echo "no changes to push" >> "$LOG"; exit 0
 fi
