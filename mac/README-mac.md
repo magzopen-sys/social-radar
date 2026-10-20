@@ -4,16 +4,16 @@ This runs the **whole** radar on your Mac, with your keys in a git-ignored
 `.env` that never leaves the machine. Nothing is stored in the repo or in CI.
 
 - **TikTok + Instagram** — scraped from your logged-in browser (only way that works).
-- **Reddit + YouTube + Google Trends** — official APIs, keys read from `../.env`.
-- The Mac builds `feed.json` and pushes it; the Discord bot reads it as before.
+- **YouTube + Modrinth + Reddit + Google Trends** — APIs, keys read from `../.env`.
+- Results stay on the Mac: open `ideas.md` for the day's content ideas.
 
 ```
   Your Mac (scheduled by launchd)
   mac/run.sh:
     1) mac_scraper.py  -> social.json   (TikTok + IG, logged-in browser)
-    2) scrape.py       -> feed.json     (Reddit + YouTube + Trends + social.json)
-    3) git push feed.json  ──────────>  bot reads it via SOCIAL_FEED_URL
-  Keys come from ../.env (git-ignored).
+    2) scrape.py       -> feed.json     (YouTube + Modrinth + Reddit + Trends + social.json)
+    3) ideas.py        -> ideas.md      (cross-platform content ideas)
+  Keys come from ../.env (git-ignored) or the Keychain.
 ```
 
 > ⚠️ Scraping TikTok/IG is against their ToS. Keep it to once a day, and use a
@@ -75,7 +75,7 @@ more Instagram results.
 
 ## Schedule it (launchd)
 
-`mac/run.sh` runs all three steps and pushes `feed.json`. To run it daily:
+`mac/run.sh` runs all three steps and leaves the results on the Mac. To run it daily:
 
 1. Edit `com.magz.social-radar.plist` — replace the three `/ABSOLUTE/PATH/TO`
    paths with your real repo path (e.g. `/Users/you/social-radar`).
