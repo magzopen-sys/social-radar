@@ -26,7 +26,8 @@ Daily run:
 
 Config (env):
     TT_QUERIES   comma list for TikTok search (default minecraft set)
-    IG_TAGS      comma list of Instagram hashtags (default minecraft set)
+    IG_ACCOUNTS  comma list of Instagram handles whose Reels to read (default minecraft)
+    IG_TAGS      comma list of Instagram hashtags (default none; those pages often error)
     LIMIT        max items per platform (default 50)
     HEADLESS=1   run with no visible window (more bot-detectable; default off)
     SCROLLS      scroll passes per page (default 8)
@@ -73,10 +74,11 @@ def _env_list(name: str, default: str, strip: str = "") -> list[str]:
 # TikTok hashtag pages usually load logged-out; search pages require a login.
 TT_TAGS = _env_list("TT_TAGS", "minecraft,minecraftbuilds,minecraftmemes", "#")
 TT_QUERIES = _env_list("TT_QUERIES", "minecraft,minecraft build,minecraft shorts")
-# Instagram account Reels tabs load reliably; hashtag pages sometimes show
-# "Something went wrong" but often still return a few posts, so both are on.
+# Instagram account Reels tabs load reliably. Its web hashtag pages show
+# "Something went wrong" and added ~1 post each in real runs, so they're off by
+# default; set IG_TAGS to turn them back on.
 IG_ACCOUNTS = _env_list("IG_ACCOUNTS", "minecraft", "@")
-IG_TAGS = _env_list("IG_TAGS", "minecraft,minecraftbuilds,minecraftmemes", "#")
+IG_TAGS = _env_list("IG_TAGS", "", "#")
 # Seconds to wait between page loads (plus random jitter), per platform.
 TT_PAUSE = float(os.getenv("TT_PAUSE", "4"))
 IG_PAUSE = float(os.getenv("IG_PAUSE", "12"))

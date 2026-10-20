@@ -67,7 +67,7 @@ Add any of these to `../.env` (comma-separated):
 | `TT_TAGS` | `minecraft,minecraftbuilds,minecraftmemes` | `tiktok.com/tag/<tag>` (works logged out) |
 | `TT_QUERIES` | `minecraft,minecraft build,minecraft shorts` | TikTok search (needs a TikTok login) |
 | `IG_ACCOUNTS` | `minecraft` | `instagram.com/<handle>/reels/` |
-| `IG_TAGS` | `minecraft,minecraftbuilds,minecraftmemes` | Instagram hashtag pages |
+| `IG_TAGS` | *(none)* | Instagram hashtag pages (often show "Something went wrong", so off by default) |
 | `SCROLLS` | `8` | max scrolls per page (stops early once a page stops growing) |
 
 Adding a few big Minecraft creators to `IG_ACCOUNTS` is the easiest way to get
